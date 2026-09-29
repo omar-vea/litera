@@ -10,7 +10,7 @@ export const vizitki: ServiceData = {
       'Визитки: нарисуем макет или напечатаем ваш. Плотный картон, тиснение, скругление углов. Тираж от 50 штук.',
     ogTitle: 'Дизайн и печать визиток',
     ogDescription: 'Плотный картон, тиснение, скругление углов. Тираж от 50 штук.',
-    ogImage: '/img/vizitki/vizitki-lead.jpg',
+    ogImage: '/img/vizitki/hero-woodberry.jpg',
   },
   jsonLd: [
     {
@@ -33,10 +33,10 @@ export const vizitki: ServiceData = {
   title: 'Визитки',
   desc: 'Нарисуем макет или напечатаем ваш. Плотный картон, тиснение, скругление углов\u00a0— от 50\u00a0штук.',
   hero: {
-    src: '/img/vizitki/vizitki-lead.jpg',
+    src: '/img/vizitki/hero-woodberry.jpg',
     w: 1200,
     h: 800,
-    alt: 'Стопка визиток на плотном картоне с тиснением фольгой, одна лежит лицом вверх',
+    alt: 'Визитки Woodberry Beauty: белая лицевая сторона и оборот с узором на тёмном фоне',
   },
   can: {
     title: 'Ваши лучшие визитки',
