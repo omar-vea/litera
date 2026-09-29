@@ -252,10 +252,16 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 80px;
     align-items: start;
-    padding-top: var(--gap-block);
+    padding: var(--gap-block) var(--side) 0;
   }
   .ls-contacts-col {
     display: block;
+  }
+  /* Поля страницы даёт обёртка. У блоков свои поля по --side, и в колонке
+     они считались ещё раз: на 1920 от колонки оставалось 240 пикселей. */
+  .ls-contacts-col > .ls-contacts-block {
+    padding-left: 0;
+    padding-right: 0;
   }
   .ls-contacts-col > .ls-contacts-block:first-child {
     margin-top: 0;
