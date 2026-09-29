@@ -1,0 +1,33 @@
+/* «Читать дальше / Свернуть» — раскрытие <details class="ls-more">.
+   Нужно блоку «О …» и списку материалов. */
+/* Правил `h2 + h3` и `details + h3` здесь больше нет: заголовки лежат внутри
+   `.ls-spec-group`, соседями `h2` и `details` не являются, и оба правила никогда
+   не срабатывали. Отступ группам даёт `.ls-specs h3`. */
+.ls-more {
+  margin-top: 11px;
+}
+.ls-more summary {
+  display: inline-block;
+  font-size: var(--t-ui);
+  color: var(--ink);
+  cursor: pointer;
+  padding: 13px 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  list-style: none;
+}
+.ls-more summary::-webkit-details-marker {
+  display: none;
+}
+.ls-more summary:hover {
+  text-decoration-color: var(--ink);
+}
+.ls-more .ls-s-open,
+.ls-more[open] .ls-s-closed {
+  display: none;
+}
+.ls-more[open] .ls-s-open {
+  display: inline;
+}

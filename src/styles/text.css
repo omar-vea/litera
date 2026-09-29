@@ -1,0 +1,77 @@
+/* Ссылка к разбору различий: стоит перед списком, иначе человек доберётся
+   до объяснения только после 17 позиций. Названа так же, как блок, — чтобы ожидание
+   совпадало с тем, что он там найдёт. Тихая строка, а не кнопка: большинству
+   она не нужна, они пришли за конкретной услугой. */
+.ls-cat-hint {
+  margin: var(--gap-item) 0 0;
+  padding: 0 var(--pad);
+}
+/* Простая ссылка, а не кнопка: кнопка спорила с плитками за внимание. */
+.ls-cat-hint a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line-strong);
+}
+.ls-cat-hint a:hover {
+  text-decoration-color: var(--ink);
+}
+.ls-cat-hint a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Два текстовых блока категории: помощь с выбором и текст для поиска.
+   Второй нужен потому, что на категории много приходят из поиска,
+   а страница без текста для поиска пустая. Написан для чтения, не для робота. */
+
+/* Строки собирает общий компонент `.ls-qa` из faq.css. Своих правил
+   для пар здесь нет. */
+
+.ls-about {
+  margin-top: var(--gap-block);
+  padding: 0 var(--pad);
+}
+.ls-about p {
+  margin: 16px 0 0;
+  font-size: var(--t-ui);
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+/* Мера включается с планшета, а не с широкого экрана: между 600 и 1023
+   колонок нет, и без неё абзац растягивался шире, чем на десктопе. */
+@media (min-width: 600px) {
+  .ls-about p {
+    max-width: 70ch;
+  }
+}
+
+/* ── Широкий экран ─────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  /* Поля даёт правило в конце файла. */
+  .ls-cat-hint {
+    max-width: 70ch;
+  }
+}
+
+/* Боковые поля на широких экранах: `--side` растёт вместе с шириной. */
+@media (min-width: 600px) {
+  .ls-about,
+  .ls-cat-hint {
+    padding-left: var(--side);
+    padding-right: var(--side);
+  }
+}
+
+/* Появление при прокрутке — только где браузер умеет scroll-driven animations. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ls-about {
+      animation: lift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 46%;
+    }
+  }
+}

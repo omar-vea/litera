@@ -1,0 +1,70 @@
+/* Полоса показателей: годы, проекты, клиенты. */
+
+.ls-figures {
+  margin-top: var(--gap-block);
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 12px;
+  text-align: center;
+}
+.ls-figures b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-display);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.ls-figures span {
+  display: block;
+  margin-top: 7px;
+  font-size: var(--t-cap);
+  line-height: 1.35;
+  color: var(--muted);
+}
+/* на 320 «1500+» в 34px не влезает в треть ширины — опускаем на ступень */
+@media (max-width: 359px) {
+  .ls-figures b {
+    font-size: var(--t-lead);
+  }
+}
+
+/* ── Широкий экран ─────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  /* Цифры: те же три в ряд, но с воздухом */
+  .ls-figures {
+    gap: 80px;
+  }
+}
+
+/* Боковые поля на широких экранах: `--side` растёт вместе с шириной. */
+@media (min-width: 600px) {
+  .ls-figures {
+    padding-left: var(--side);
+    padding-right: var(--side);
+  }
+}
+
+/* Появление при прокрутке — только где браузер умеет scroll-driven animations. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ls-figures {
+      animation: lift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 46%;
+    }
+  }
+}
+
+/* Появление при прокрутке — только где браузер умеет scroll-driven animations. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ls-figures b {
+      animation: weigh linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 30%;
+    }
+  }
+}

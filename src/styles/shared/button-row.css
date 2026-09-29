@@ -1,0 +1,21 @@
+/* Ряд кнопок под текстом (`.ls-req-pdf`): «Скачать требования» и
+   «Посмотреть кейс с расчётом» в блоке цены. */
+.ls-req-pdf {
+  margin: 16px 0 0;
+  display: grid;
+  gap: 8px;
+}
+.ls-req-pdf .ls-btn {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .ls-req-pdf {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+  .ls-req-pdf .ls-btn {
+    width: fit-content;
+    min-width: 220px;
+  }
+}

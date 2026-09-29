@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# litera.studio на Next.js
 
-## Getting Started
+Перенос статического прототипа редизайна (https://omarmardanov.github.io/litera/) на Next.js 15
+(App Router), React 19, TypeScript. Вёрстка совпадает с прототипом: каждая
+страница сверяется с ним снимками 390 и 1280 px.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+npm install
+npm run dev          # http://localhost:3000
+npm run check        # типы, линтер, форматирование
+npm run format       # Prettier
+npm run build        # прод-сборка: все страницы статические
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Устройство
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/                 маршруты; страница — тонкий файл: данные + шаблон
+    layout.tsx         html/body, шрифты (next/font), футер, куки, чат
+    actions.ts         серверное действие формы заявки
+  components/
+    layout/            шапка с меню, футер, куки, виджет связи
+    blocks/            блоки страниц: форма, работы, направления, шаги…
+    templates/         шаблоны типов страниц: направление, раздел, услуга
+    ui/                мелкие: Icon, JsonLd
+  content/             данные сайта, типизированные; по форме — будущие коллекции Payload
+  lib/                 typo (неразрывные пробелы), useMediaQuery
+  styles/              глобальное: токены, база, кнопки, каркас и первый экран (вход — site.css)
+    shared/            общие приёмы: строки, поля формы, аккордеон, диалог, «Читать дальше»…
+public/
+  img/ files/ data/    картинки, PDF требований, данные поиска
+  icons.svg            спрайт иконок, ссылка через <Icon name="…">
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Решения
 
-## Learn More
+- **Стили лежат рядом с компонентами**: `Faq.tsx` + `Faq.css`, компонент
+  сам импортирует свой CSS, Next подключает странице только нужное и сжимает.
+  Глобально (через `styles/site.css` в layout) — только токены, база, кнопки
+  и каркас страницы с первым экраном. Приёмы, нужные нескольким компонентам,
+  — в `styles/shared`, каждый пользователь импортирует их сам.
+- **Классы — глобальные с префиксом `ls-`**, а не CSS-модули: разметка
+  и контекстные селекторы (`.ls-card:has(.ls-hero) …`) перенесены
+  из прототипа как есть. Модули — возможный следующий шаг.
+- **Каскад не зависит от порядка файлов.** Next подключает стили в порядке
+  импорта, и при переходах между страницами он меняется. Поэтому правила
+  одной силы из разных файлов не спорят: модификатор пишется составным
+  селектором (`.ls-hero.ls-home-hero`), умолчания для детей — через `:where()`.
+  Две проверки (нужен собранный сайт на 3100 и Google Chrome):
+  `node scripts/css-conflicts.mjs <страницы>` — ищет правила, победителя между
+  которыми решает только порядок; `BASE=http://localhost:3000 node
+  scripts/css-coverage.mjs <страницы>` на `npm run dev` — ищет классы,
+  чьи стили странице не подключены. Обе должны молчать.
+- **Шапка стоит внутри `<main class="ls-card">`**, как в прототипе: на это
+  завязаны селекторы. Поэтому `<SiteHeader />` ставит каждая страница,
+  а футер, куки и чат — общий layout.
+- **Поведение — на состоянии React**, без прямой правки DOM. Исключения
+  с причиной в комментарии: блокировка прокрутки под меню на iOS,
+  наблюдатели прокрутки у шапки.
+- **Картинки — `next/image`**: webp/avif и размеры под экран делает Next.
+  Ручные `<picture>` прототипа убраны.
+- **Контент в `src/content`** — пока файлами;
+  формы данных повторяют будущие коллекции headless CMS (например, Payload):
+  `site-settings`, `directions`, `sections`, `services`, `works`.
+- **Форма заявки** отправляется серверным действием `submitLead`. Адресат
+  не подключён (на живом сайте — Битрикс24): до прода заменить `deliver`.
+- **Неразрывные пробелы** в текстах из данных ставит `typo()` при выводе.
 
-To learn more about Next.js, take a look at the following resources:
+## Страницы и шаблоны
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Тип | Шаблон | Данные | Страницы |
+|---|---|---|---|
+| Главная | `app/page.tsx` | `content/site.ts`, `directions.ts`, `works.ts` | / |
+| Направление | `templates/DirectionTemplate` | `content/direction-pages/*` | /poligrafiya, /korporativnyj-brending-suveniry |
+| Раздел | `templates/SectionTemplate` | `content/sections/*` | /listovaya-poligrafiya, /karty-i-nastolnye-igry, /dizajn-dlya-bara, /korporativnye-podarochnye-nabory |
+| Услуга | `templates/ServiceTemplate` | `content/services/*` | /dizajn-vizitki, /dizajn-menyu, /pechat-nastolnyh-igr, /novogodnie-nabory, /dizajn-sertifikata, /dizajn-advent-kalendarya |
+| Кейс | `templates/CaseTemplate` | `content/cases/*` | /projects/sertifikat-bourbaki |
+| Статья | `templates/ArticleTemplate` | `content/articles/*`, `content/blog.ts` | /blog/… |
+| Своё | — | `content/contacts.tsx`, `requirements.tsx` | /projects, /blog, /contacts, /trebovaniya-k-maketam, 404 |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Маршруты пока — тонкие файлы по одному на страницу. С CMS они сворачиваются
+в `app/[slug]/page.tsx`: slug → запись → шаблон по её типу.
 
-## Deploy on Vercel
+Общие блоки (`components/blocks`): `LeadForm`, `Works` (вкладки фото/видео,
+ролик в диалоге), `Directions`, `HowWeWork`, `Proof`, `Faq` (аккордеон на
+`<details name>`), `About`, `Related`, `BackLink`, `PicModal` + `PicGallery`
+(снимок крупно: листание, клавиши, свайп, лупа), `Messengers`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Сверка с прототипом
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Эталон — страницы прототипа (ветка `main` этого репозитория). Сверка — снимками
+в headless Chrome на ширинах 390 и 1280.
+Страница готова, когда высота совпадает, а попиксельная разница — только
+пересжатие фото.

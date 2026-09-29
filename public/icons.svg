@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-mark" viewBox="0 0 113.12 161.82"><path fill="currentColor" d="m53.39,38.49l-4.17,17.01c-.35,1.45-2.16,1.95-3.21.9l-22.43-22.43c-1.16-1.16-3.15-.34-3.15,1.31v30.92c0,.49.19.96.54,1.31l3.55,3.55c1.2,1.2.35,3.26-1.35,3.26h-.82c-1.06,0-1.92.86-1.92,1.92v22.93c0,1.06.86,1.92,1.92,1.92h13.26c1.24,0,2.15,1.16,1.86,2.37l-2.79,11.37c-.09.35.02.73.3,1.06l17.6,21.04c.93,1.11,3,.99,3.29-.18l5.95-24.28c.35-1.45,2.16-1.95,3.21-.9l24.51,24.52c1.16,1.16,3.15.34,3.15-1.31v-30.91c0-.49-.19-.96-.54-1.31l-11.15-11.15c-.75-.75-.75-1.96,0-2.7l11.12-11.12c1.21-1.21.35-3.27-1.36-3.27h-17.17c-1.24,0-2.15-1.16-1.86-2.37l10.57-43.09c.29-1.18-1.5-2.24-2.83-1.68l-25.34,10.52c-.4.16-.67.45-.75.8Z"/></symbol>
+<symbol id="i-back" viewBox="0 0 16 14"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M7 1L1 7l6 6M1 7h14"/></symbol>
+<symbol id="i-play" viewBox="0 0 15 18"><path fill="currentColor" d="M15 9 0 18V0Z"/></symbol>
+<symbol id="i-prev" viewBox="0 0 18 14"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M7.5 1 1 7l6.5 6M1 7h16"/></symbol>
+<symbol id="i-next" viewBox="0 0 18 14"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M10.5 1 17 7l-6.5 6M17 7H1"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6.5l4 4 4-4"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-search" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="8.5" cy="8.5" r="6.5"/><path d="M13.5 13.5L19 19"/></g></symbol>
+<symbol id="i-talk" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M20.5 11.6c0 4-3.8 7.2-8.5 7.2-1 0-2-.15-2.9-.42L4 20l1.3-3.5C4.2 15.2 3.5 13.5 3.5 11.6c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2Z"/></symbol>
+</svg>

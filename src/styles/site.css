@@ -1,0 +1,15 @@
+/* Глобальные стили: токены, база, кнопки и каркас страницы (первый экран,
+   вводный блок, поля). Стили блоков лежат рядом с компонентами и
+   подключаются ими самими; общие примитивы — в styles/shared.
+   Каскад от порядка файлов не зависит: одинаковые по силе правила из разных
+   файлов не спорят (проверка — scripts/css-conflicts в README). */
+@import './tokens.css';
+@import './base.css';
+@import './page.css';
+@import './button.css';
+@import './shell.css';
+@import './intro.css';
+@import './hero.css';
+@import './page-lead.css';
+@import './value.css';
+@import './text.css';

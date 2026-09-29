@@ -1,0 +1,178 @@
+/* Вопрос-ответ: строка с заголовком, текстом и линией сверху, раскрывается
+   (`<details class="ls-qa">`). Используется в «Частых вопросах» на карточке,
+   в «Что выбрать под задачу» на разделе и в разделах требований.
+
+   Механика раскрытия висит на `details.ls-qa`, вид строки — на `.ls-qa`. */
+
+.ls-faq {
+  margin-top: var(--gap-block);
+  padding: 0 var(--pad);
+}
+/* «Что выбрать под задачу» на разделе — тот же аккордеон. */
+.ls-choose {
+  margin-top: var(--gap-block);
+  padding: 0 var(--pad);
+}
+.ls-qa-list {
+  margin: var(--gap-item) 0 0;
+}
+.ls-qa dd {
+  margin-inline-start: 0;
+}
+.ls-qa + .ls-qa {
+  border-top: 1px solid var(--line);
+}
+/* Шапка строки — `summary` с плюсом. */
+.ls-qa summary {
+  padding: 15px 0;
+}
+.ls-qa summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.ls-qa summary::-webkit-details-marker {
+  display: none;
+}
+/* Вопросы основным шрифтом, а не акцидентным: восемь строк Raptor подряд
+   читаются тяжело — он рисованный и держит внимание, а здесь его нужно
+   отдавать ответу. Заголовок блока остаётся акцидентным. */
+.ls-q {
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: var(--t-base);
+  line-height: 1.35;
+  letter-spacing: -0.002em;
+  color: var(--ink);
+}
+/* Ответ раскрывается плавно. У <details> высоту анимировать нечем, поэтому
+   сетка с нулевой строкой: тот же приём, что в разделах меню.
+   ::details-content поддерживают не все браузеры, а сетка работает везде. */
+/* Текст строки — абзац. `dd` здесь — значения в таблицах требований
+   (`.ls-req-spec`): браузерный отступ у них снимаем, колонку держит
+   сам компонент. */
+.ls-qa p,
+.ls-qa dd {
+  margin: -4px 0 0;
+  padding-bottom: 17px;
+  font-size: var(--t-ui);
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+/* Ссылки на услуги под ответом (пары на категории): контурные кнопки
+   в ряд, чтобы их было видно и в них попадал палец. */
+.ls-qa .ls-qa-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: -6px;
+  padding-bottom: 20px;
+}
+.ls-qa .ls-qa-links a {
+  display: inline-flex;
+  text-decoration: none;
+}
+/* Ссылки внутри ответов. Глобального стиля ссылок в проекте нет — каждая
+   оформляется в своём компоненте, этот случай был пропущен и ссылка
+   выпадала синей браузерной. */
+.ls-qa p a,
+.ls-qa dd a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.18s var(--ease);
+}
+.ls-qa p a:hover,
+.ls-qa dd a:hover {
+  text-decoration-color: var(--ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  details.ls-qa {
+    display: grid;
+    grid-template-rows: auto 0fr;
+    transition: grid-template-rows 0.32s var(--ease);
+  }
+  details.ls-qa[open] {
+    grid-template-rows: auto 1fr;
+  }
+  details.ls-qa > p {
+    overflow: hidden;
+    min-height: 0;
+    opacity: 0;
+    transition: opacity 0.22s var(--ease);
+  }
+  details.ls-qa[open] > p {
+    opacity: 1;
+    transition-delay: 0.08s;
+  }
+}
+.ls-qa summary:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+/* плюс, который при раскрытии становится минусом */
+.ls-sign {
+  position: relative;
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  margin-top: 5px;
+}
+.ls-sign::before,
+.ls-sign::after {
+  content: '';
+  position: absolute;
+  background: var(--glyph);
+  transition:
+    transform 0.18s var(--ease),
+    opacity 0.18s var(--ease);
+}
+.ls-sign::before {
+  left: 0;
+  top: 6px;
+  width: 13px;
+  height: 1.5px;
+}
+.ls-sign::after {
+  top: 0;
+  left: 6px;
+  width: 1.5px;
+  height: 13px;
+}
+details.ls-qa[open] .ls-sign::after {
+  opacity: 0;
+  transform: scaleY(0);
+}
+.ls-qa summary:hover .ls-sign::before,
+.ls-qa summary:hover .ls-sign::after {
+  background: var(--ink);
+}
+
+/* ── Широкий экран ─────────────────────────────────────────────── */
+
+/* Боковые поля на широких экранах: `--side` растёт вместе с шириной. */
+@media (min-width: 600px) {
+  .ls-faq,
+  .ls-choose {
+    padding-left: var(--side);
+    padding-right: var(--side);
+  }
+}
+
+/* Появление при прокрутке — только где браузер умеет scroll-driven animations. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ls-faq,
+    .ls-choose {
+      animation: lift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 46%;
+    }
+  }
+}

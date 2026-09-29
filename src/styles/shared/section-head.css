@@ -1,0 +1,39 @@
+/* Шапка секции: заголовок и ссылка «Все…» справа (`.ls-works-head`).
+   Работы, «Ещё статьи» под статьёй. */
+/* Ссылка равняется по нижней строке слева — по режимам, а не по надзаголовку:
+   обычный `baseline` во флексе берёт первую строку, и она вставала вровень
+   с мелким словом «Работы». `last baseline` кладёт её на базовую линию
+   «Фото · Видео»; где он не поддержан, работает запасное выравнивание по низу. */
+.ls-works-head {
+  display: flex;
+  align-items: flex-end;
+  align-items: last baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 var(--pad);
+}
+/* Тап-цель: ссылка занимала 87×17, пальцем не попасть. Поля растят область
+   касания до 45, отрицательный отступ возвращает строку на место — соседи
+   не съезжают. Выключка по базовой линии в шапке блока при этом сохраняется. */
+.ls-works-head a {
+  padding: 14px 0;
+  margin: -14px 0;
+  font-size: var(--t-ui);
+  color: var(--ink);
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.18s var(--ease);
+}
+.ls-works-head a:hover {
+  text-decoration-color: var(--ink);
+}
+/* Боковые поля на широких экранах: `--side` растёт вместе с шириной. */
+@media (min-width: 600px) {
+  .ls-works-head {
+    padding-left: var(--side);
+    padding-right: var(--side);
+  }
+}

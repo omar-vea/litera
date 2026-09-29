@@ -1,0 +1,33 @@
+/* Подпись у курсора над карточками: что случится по клику. */
+/* ── Подпись у курсора ─────────────────────────────────────────────
+   Что случится по клику. Карточка — большая картинка без видимой кнопки,
+   и подпись отвечает на вопрос там, где он возникает, не занимая места
+   в вёрстке. Плашка одна на страницу, текст берётся из `data-cursor`.
+
+   Смещение вправо-вниз: под курсором подпись пряталась бы за самим
+   курсором. `pointer-events:none` — иначе плашка перехватывала бы наведение
+   у карточки и мигала. */
+.ls-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  pointer-events: none;
+  margin: 14px 0 0 16px;
+  padding: 7px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--t-cap);
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.14s var(--ease);
+}
+.ls-cursor.is-on {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ls-cursor {
+    transition: none;
+  }
+}

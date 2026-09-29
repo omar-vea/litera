@@ -1,0 +1,183 @@
+/* Шрифты, сброс, служебные классы, фон страницы. */
+
+/* Inter подключён файлом: раньше он брался из системы, и Safari подставлял
+   вместо него системный шрифт с другими пропорциями цифр. */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Шрифт общим блокам задаётся напрямую. Раньше он приходил от `body`,
+   но правило на `body` уехало в page.css: на странице старого дизайна
+   оно перекрасило бы весь сайт. */
+.ls-topbar,
+.ls-menu,
+.ls-foot,
+.ls-chat,
+.ls-cookie,
+.ls-copy-tip,
+.ls-skip {
+  font-family: var(--font-text);
+}
+
+/* Атрибуты width/height у картинки — это presentational hint, то есть
+   настоящие CSS-ширина и высота, а не только пропорция для резерва места.
+   Без `height:auto` картинка с атрибутами игнорирует `aspect-ratio`
+   и растягивается на натуральную высоту файла — на блоке работ это дало
+   картинки 497 вместо 265. Атрибуты нужны против скачка вёрстки при загрузке,
+   поэтому лечим здесь, один раз для всех. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ссылка на страницу, которой ещё нет. Скрывает элемент целиком, поэтому
+   годится только для отдельно стоящих ссылок и пунктов списка — ссылку
+   внутри предложения так прятать нельзя, из фразы выпадут слова.
+   Разработчику: страница появилась — снимите атрибут в разметке, правило
+   трогать не нужно. */
+[data-soon] {
+  display: none !important;
+}
+.ls-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+[hidden] {
+  display: none !important;
+}
+/* Слово с дефисом, которое нельзя рвать: неразрывного дефиса U+2011
+   нет ни в Raptor, ни в Inter — подставился бы чужой шрифт. */
+.ls-nowrap {
+  white-space: nowrap;
+}
+/* Спрайт иконок (`_parts/icons.html`): символы не рисуются сами, контейнер
+   убран из потока, но не `display:none` — иначе в Safari пропадают <use>. */
+.ls-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Полосу под строкой статуса убрали: она лежала вне карточки, поэтому не попадала
+   под обрезку переполнения и её ширина расходилась с экраном — страница ехала вбок.
+   Цвет строки статуса держится на переключении фона body ниже. */
+
+/* Сторож: пока он виден, страница не прокручена. */
+.ls-scroll-sentinel {
+  display: block;
+  height: 1px;
+  margin-bottom: -1px;
+}
+
+/* Ссылка «к содержанию»: не видна, пока не получила фокус с клавиатуры. */
+.ls-skip {
+  position: fixed;
+  left: 8px;
+  top: -60px;
+  z-index: 20;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--t-ui);
+  text-decoration: none;
+  transition: top 0.16s var(--ease);
+}
+.ls-skip:focus {
+  top: 8px;
+}
+
+/* Якорь не уезжает под шапку. Пока открыт поиск, отступ снимаем:
+   иначе клавиатура на телефоне прокручивает страницу к полю с зазором. */
+html {
+  scroll-padding-top: var(--topbar);
+}
+html:has(.ls-menu-search input:focus) {
+  scroll-padding-top: 0;
+}
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: var(--topbar-stuck);
+  }
+}
+
+/* Переход по якорю показывает блок сразу, без анимации появления. */
+:target {
+  animation: none !important;
+}
+
+/* Ключевые кадры общие для всех блоков: имена глобальны в любом случае. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes lift {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes card {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes weigh {
+  from {
+    opacity: 0.25;
+    letter-spacing: 0.04em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: -0.01em;
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-56px) scale(0.94);
+  }
+}
+@keyframes ahead {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-18px) scale(0.965);
+    opacity: 0.35;
+  }
+}
+@keyframes read {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
