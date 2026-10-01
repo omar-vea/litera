@@ -116,8 +116,8 @@
   width: 124px;
   height: 19px;
   background-color: currentColor;
-  -webkit-mask: url(/img/logo.svg) no-repeat left center/contain;
-  mask: url(/img/logo.svg) no-repeat left center/contain;
+  -webkit-mask: url(/litera/img/logo.svg) no-repeat left center/contain;
+  mask: url(/litera/img/logo.svg) no-repeat left center/contain;
 }
 .ls-wordmark-mark,
 .ls-wordmark-name,
@@ -266,8 +266,8 @@
     top: 0;
     width: 17px;
     height: 26px;
-    -webkit-mask-image: url(/img/logo-mark.svg);
-    mask-image: url(/img/logo-mark.svg);
+    -webkit-mask-image: url(/litera/img/logo-mark.svg);
+    mask-image: url(/litera/img/logo-mark.svg);
   }
   .ls-wordmark-text {
     display: block;
@@ -275,8 +275,8 @@
   .ls-wordmark-name {
     width: 121px;
     height: 14px;
-    -webkit-mask-image: url(/img/logo-name.svg);
-    mask-image: url(/img/logo-name.svg);
+    -webkit-mask-image: url(/litera/img/logo-name.svg);
+    mask-image: url(/litera/img/logo-name.svg);
   }
   /* 11 — единственное значение вне шкалы, и оно здесь оправдано: дескриптор
        должен быть заметно мельче названия, а ближайший токен 12 сравнивается
