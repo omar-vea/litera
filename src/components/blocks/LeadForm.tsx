@@ -3,7 +3,8 @@
 import { useActionState, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { site } from '@/content/site';
-import { submitLead, type LeadState } from '@/app/actions';
+import { submitLead } from '@/app/actions.static';
+import type { LeadState } from '@/app/actions';
 import '@/styles/shared/form.css';
 
 const FILE_LIMIT = 25 * 1024 * 1024; // отраслевая норма для макетов
