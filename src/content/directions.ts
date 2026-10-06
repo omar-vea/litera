@@ -34,7 +34,7 @@ export const directions: Direction[] = [
     title: 'Упаковка и этикетки',
     count: '56 услуг',
     note: 'Коробки, пакеты, этикетки, подарочные наборы',
-    href: 'https://litera.studio/upakovka-i-etiketki',
+    href: '/upakovka-i-etiketki',
     shot: {
       src: '/img/dirs/upakovka-set.jpg',
       alt: 'Упаковка: пакет, коробка с наклейкой и бейдж, знак вытиснен вслепую, розовый акцент',
@@ -46,7 +46,7 @@ export const directions: Direction[] = [
     title: 'Логотип и фирменный стиль',
     count: '9 услуг',
     note: 'Знак, гайдлайн, носители, макеты под печать',
-    href: 'https://litera.studio/logotip-i-firmennyj-stil',
+    href: '/razrabotka-dizajna-logotipa-kompanii',
     shot: {
       src: '/img/dirs/logotip-set.jpg',
       alt: 'Разворот гайдлайна с построением знака, эскизы, визитки, бирка и значок, лаймовый акцент',

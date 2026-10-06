@@ -118,7 +118,10 @@
     z-index: 0;
     display: grid;
     grid-template-columns: var(--side) minmax(0, calc(50% - var(--side))) minmax(0, 50%);
-    grid-template-rows: auto auto auto;
+    /* Текст, блок «кнопка + мессенджеры» (`.ls-cta-group`) и пустая строка.
+       Кадр выше текста — весь добор уходит в последнюю строку, под
+       мессенджеры: текст и кнопка стоят одинаково на любой странице. */
+    grid-template-rows: auto auto 1fr;
   }
   .ls-card:has(.ls-hero) .ls-lead::before {
     content: '';

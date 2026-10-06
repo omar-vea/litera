@@ -33,12 +33,13 @@ export type ServiceData = {
   back: { href: string; label: string };
   title: ReactNode;
   desc: ReactNode;
+  /** Фото первого экрана; не загружено — обложка из карточки. */
   hero: Img;
   /** «Ваши лучшие …»: что добавляется сверх обычного тиража. */
-  can: { title: ReactNode; items: { img?: Img; title: ReactNode; text: ReactNode }[] };
+  can?: { title: ReactNode; items: { img?: Img; title: ReactNode; text: ReactNode }[] };
   works?: WorksSet;
   /** «Зачем … бизнесу» / «От чего зависит цена». */
-  value: {
+  value?: {
     title: ReactNode;
     items: { title: ReactNode; text: ReactNode }[];
     link?: { href: string; label: string };
@@ -53,7 +54,7 @@ export type ServiceData = {
   specs?: { title: string; cols: SpecGroup[][] };
   /** Шаги со сроками под продукт; без них — общие шаги. */
   how?: { steps: ServiceStep[]; total: ReactNode };
-  faq: { title: string; items: QA[] };
-  about: { title: string; lead: ReactNode; more?: ReactNode };
-  related: { title: string; all: { href: string; label: string }; items: RelatedItem[] };
+  faq?: { title: string; items: QA[] };
+  about?: { title: string; lead: ReactNode; more?: ReactNode };
+  related?: { title: string; all: { href: string; label: string }; items: RelatedItem[] };
 };

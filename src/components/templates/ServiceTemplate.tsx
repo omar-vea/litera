@@ -23,12 +23,27 @@ import { JsonLd } from '@/components/ui/JsonLd';
  * для поиска и соседние услуги. Блока без данных нет вовсе.
  */
 export function ServiceTemplate({ data }: { data: ServiceData }) {
+  const rest = (
+    <>
+      {data.can && <Can {...data.can} />}
+      {data.works && <Works set={data.works} />}
+      {data.value && <Value {...data.value} />}
+      {data.beforeAfter && <BeforeAfter {...data.beforeAfter} />}
+      {data.specs && <Specs {...data.specs} />}
+      <HowWeWork steps={data.how?.steps} total={data.how?.total} />
+      {data.faq && <Faq title={data.faq.title} items={data.faq.items} />}
+      <Proof />
+      <LeadForm />
+      {data.about && <About {...data.about} />}
+      {data.related && <Related {...data.related} />}
+    </>
+  );
+  const jsonLd = data.jsonLd.map((ld, i) => <JsonLd key={i} data={ld} />);
+
   return (
     <>
       {/* JSON-LD вне <main>: внутри он сбивает правила :first-child/:last-child */}
-      {data.jsonLd.map((ld, i) => (
-        <JsonLd key={i} data={ld} />
-      ))}
+      {jsonLd}
       <main className="ls-card" id="main" data-dir={data.dir}>
         <SiteHeader />
 
@@ -47,29 +62,21 @@ export function ServiceTemplate({ data }: { data: ServiceData }) {
             <i className="ls-body-sentinel ls-chat-sentinel" aria-hidden="true" />
             <BackLink href={data.back.href} label={data.back.label} />
             <h1 className="ls-title">{data.title}</h1>
-            <p className="ls-desc">{data.desc}</p>
+            {data.desc && <p className="ls-desc">{data.desc}</p>}
           </div>
-          <div className="ls-cta">
-            <a className="ls-btn ls-btn-main" href="#zayavka">
-              Обсудить задачу
-            </a>
+          <div className="ls-cta-group">
+            <div className="ls-cta">
+              <a className="ls-btn ls-btn-main" href="#zayavka">
+                Обсудить задачу
+              </a>
+            </div>
+            <Messengers />
           </div>
-          <Messengers />
         </div>
 
         <div className="ls-rest">
           <i className="ls-rest-sentinel" aria-hidden="true" />
-          <Can {...data.can} />
-          {data.works && <Works set={data.works} />}
-          <Value {...data.value} />
-          {data.beforeAfter && <BeforeAfter {...data.beforeAfter} />}
-          {data.specs && <Specs {...data.specs} />}
-          <HowWeWork steps={data.how?.steps} total={data.how?.total} />
-          <Faq title={data.faq.title} items={data.faq.items} />
-          <Proof />
-          <LeadForm />
-          <About {...data.about} />
-          <Related {...data.related} />
+          {rest}
         </div>
       </main>
     </>

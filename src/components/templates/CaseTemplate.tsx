@@ -118,7 +118,7 @@ export function CaseTemplate({ data }: { data: CaseData }) {
             </div>
           </section>
 
-          <Works set={data.works} />
+          {data.works.works.length > 0 && <Works set={data.works} />}
           <LeadForm />
         </div>
       </PicGallery>

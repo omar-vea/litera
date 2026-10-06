@@ -33,25 +33,29 @@ export function SectionTemplate({ page }: { page: SectionPage }) {
         <SiteHeader noHero />
 
         <PageLead back={page.back} title={page.title} desc={page.desc} solo />
-        <p className="ls-cat-hint">
-          <a href="#vybor">{page.choose.title}</a>
-        </p>
+        {page.choose && (
+          <p className="ls-cat-hint">
+            <a href="#vybor">{page.choose.title}</a>
+          </p>
+        )}
         <i className="ls-chat-sentinel" aria-hidden="true" />
 
         <Catalog columns={page.catalog} />
-        <Faq
-          title={page.choose.title}
-          items={page.choose.items}
-          variant="choose"
-          id="vybor"
-          thumbs={thumbs}
-        />
-        <Works set={page.works} />
+        {page.choose && (
+          <Faq
+            title={page.choose.title}
+            items={page.choose.items}
+            variant="choose"
+            id="vybor"
+            thumbs={thumbs}
+          />
+        )}
+        {page.works && <Works set={page.works} />}
         <HowWeWork />
         <Proof />
         <LeadForm />
-        <About {...page.about} />
-        <Related {...page.related} />
+        {page.about && <About {...page.about} />}
+        {page.related && <Related {...page.related} />}
       </main>
     </>
   );

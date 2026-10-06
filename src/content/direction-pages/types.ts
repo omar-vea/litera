@@ -15,5 +15,5 @@ export type DirectionPage = {
   sections: Tile[];
   /** Работы — если по тегам направления их набирается хотя бы три. */
   works?: WorksSet;
-  about: { title: string; lead: ReactNode; more?: ReactNode };
+  about?: { title: string; lead: ReactNode; more?: ReactNode };
 };

@@ -18,19 +18,19 @@ export const menu: MenuGroup[] = [
       },
       {
         label: 'Многостраничные издания',
-        href: 'https://litera.studio/dizajn-mnogostranichnoj-produkcii',
+        href: '/dizajn-mnogostranichnoj-produkcii',
       },
       {
         label: 'Вёрстка полиграфии',
-        href: 'https://litera.studio/verstka-poligrafii',
+        href: '/verstka-poligrafii',
       },
       {
         label: 'Календари',
-        href: 'https://litera.studio/dizajn-kalendarya',
+        href: '/dizajn-kalendarya',
       },
       {
         label: 'Широкоформатная',
-        href: 'https://litera.studio/dizajn-shirokoformatnoj-poligrafii',
+        href: '/dizajn-shirokoformatnoj-poligrafii',
       },
       {
         label: 'Меню и прайсы',
@@ -38,11 +38,11 @@ export const menu: MenuGroup[] = [
       },
       {
         label: 'Папки, печати, пластиковые карты',
-        href: 'https://litera.studio/pechati-papki-plastikovye-karty',
+        href: '/pechati-papki-plastikovye-karty',
       },
       {
         label: 'Свадебная полиграфия',
-        href: 'https://litera.studio/svadebnaya-poligrafiya',
+        href: '/svadebnaya-poligrafiya',
       },
       {
         label: 'Карты и настольные игры',
@@ -50,37 +50,37 @@ export const menu: MenuGroup[] = [
       },
       {
         label: 'Иллюстрации',
-        href: 'https://litera.studio/illyustracii',
+        href: '/illyustracii',
       },
       {
         label: 'Подготовка к печати',
-        href: 'https://litera.studio/prepress',
+        href: '/prepress',
       },
     ],
   },
   {
     title: 'Упаковка и этикетки',
-    href: 'https://litera.studio/upakovka-i-etiketki',
+    href: '/upakovka-i-etiketki',
     items: [
       {
         label: 'Кашированные коробки',
-        href: 'https://litera.studio/dizajn-i-pechat-kashirovannyh-korobok-iz-zhyostkogo-kartona',
+        href: '/dizajn-i-pechat-kashirovannyh-korobok-iz-zhyostkogo-kartona',
       },
       {
         label: 'Картонные коробки',
-        href: 'https://litera.studio/dizajn-i-pechat-korobok-iz-kartona',
+        href: '/dizajn-i-pechat-korobok-iz-kartona',
       },
       {
         label: 'Коробки из МГК',
-        href: 'https://litera.studio/dizajn-i-pechat-korobok-iz-mgk',
+        href: '/dizajn-i-pechat-korobok-iz-mgk',
       },
       {
         label: 'Ложементы и вставки',
-        href: 'https://litera.studio/dizajn-i-pechat-korobok-s-lozhementom',
+        href: '/dizajn-i-pechat-korobok-s-lozhementom',
       },
       {
         label: 'Этикетки и наклейки',
-        href: 'https://litera.studio/dizajn-naklejki',
+        href: '/dizajn-naklejki',
       },
       {
         label: 'Упаковочные материалы',
@@ -91,23 +91,23 @@ export const menu: MenuGroup[] = [
   },
   {
     title: 'Логотип и фирменный стиль',
-    href: 'https://litera.studio/razrabotka-dizajna-logotipa-kompanii',
+    href: '/razrabotka-dizajna-logotipa-kompanii',
     items: [
       {
         label: 'Маскот бренда',
-        href: 'https://litera.studio/razrabotka-dizajna-maskota-brenda',
+        href: '/razrabotka-dizajna-maskota-brenda',
       },
       {
         label: 'Брендбук и гайдлайн',
-        href: 'https://litera.studio/razrabotka-brendbuka',
+        href: '/razrabotka-brendbuka',
       },
       {
         label: 'Фирменные носители',
-        href: 'https://litera.studio/dizajn-firmennyh-nositelej',
+        href: '/dizajn-firmennyh-nositelej',
       },
       {
         label: 'Редизайн логотипа',
-        href: 'https://litera.studio/redizajn-logotipa-i-firmennyh-nositelej',
+        href: '/redizajn-logotipa-i-firmennyh-nositelej',
       },
     ],
   },
@@ -117,11 +117,11 @@ export const menu: MenuGroup[] = [
     items: [
       {
         label: 'Корпоративный мерч',
-        href: 'https://litera.studio/korporativnyj-merch',
+        href: '/korporativnyj-merch',
       },
       {
         label: 'Брендирование сувениров',
-        href: 'https://litera.studio/dizajn-suvenirnoj-produkcii',
+        href: '/dizajn-suvenirnoj-produkcii',
       },
       {
         label: 'Подарочные наборы',

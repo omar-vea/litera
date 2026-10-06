@@ -11,7 +11,7 @@ import './Can.css';
  * прокручивается вбок; стрелки и полоса прокрутки появляются, только
  * когда карточкам тесно.
  */
-export function Can({ title, items }: ServiceData['can']) {
+export function Can({ title, items }: NonNullable<ServiceData['can']>) {
   const list = useRef<HTMLUListElement>(null);
   const [state, setState] = useState({ scrollable: false, atStart: true, atEnd: false, knob: 100, shift: 0 });
 

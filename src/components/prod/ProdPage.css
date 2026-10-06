@@ -1,0 +1,12 @@
+/* Пока грузится снимок прода: строка на месте первого экрана. */
+.ls-prod-loading {
+  margin: 0;
+  padding: 120px var(--pad) 50vh;
+  color: var(--muted);
+}
+@media (min-width: 600px) {
+  .ls-prod-loading {
+    padding-left: var(--side);
+    padding-right: var(--side);
+  }
+}

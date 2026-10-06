@@ -181,7 +181,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Фирменные бланки',
             note: 'Для писем и договоров, с реквизитами и логотипом',
-            href: 'https://litera.studio/dizajn-blanka',
+            href: '/dizajn-blanka',
             img: {
               src: '/img/services/blanki.jpg',
               w: 416,
@@ -193,7 +193,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Конверты',
             note: 'Под сертификат, приглашение или документы',
-            href: 'https://litera.studio/dizajn-konverta',
+            href: '/dizajn-konverta',
             img: {
               src: '/img/services/konverty.jpg',
               w: 416,
@@ -205,7 +205,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Кубарики',
             note: 'Блок для записей с логотипом, склеенный или в подставке',
-            href: 'https://litera.studio/dizajn-kubarika',
+            href: '/dizajn-kubarika',
           },
         ],
       },
@@ -215,7 +215,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Приглашения',
             note: 'Свадьба, открытие, корпоратив\u00a0— от простых до конвертов с вкладышами',
-            href: 'https://litera.studio/dizajn-priglasheniya',
+            href: '/dizajn-priglasheniya',
             img: {
               src: '/img/services/priglasheniya.jpg',
               w: 416,
@@ -226,12 +226,12 @@ export const listovaya: SectionPage = {
           {
             title: 'Билеты',
             note: 'С нумерацией, отрывным корешком и защитой от подделки',
-            href: 'https://litera.studio/dizajn-bileta',
+            href: '/dizajn-bileta',
           },
           {
             title: 'Бейджи',
             note: 'Для мероприятий и персонала, с держателем или лентой',
-            href: 'https://litera.studio/dizajn-bejdzha',
+            href: '/dizajn-bejdzha',
             img: {
               src: '/img/services/bejdzhi.jpg',
               w: 416,
@@ -242,7 +242,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Дипломы',
             note: 'Для курсов, конкурсов и внутренних наград',
-            href: 'https://litera.studio/dizajn-diploma',
+            href: '/dizajn-diploma',
             img: {
               src: '/img/services/diplomy.jpg',
               w: 416,
@@ -253,7 +253,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Грамоты',
             note: 'Наградные бланки на плотной бумаге, с фольгой или тиснением',
-            href: 'https://litera.studio/dizajn-gramoty',
+            href: '/dizajn-gramoty',
             img: {
               src: '/img/services/gramoty.jpg',
               w: 416,
@@ -271,7 +271,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Листовки',
             note: 'Раздаточный тираж: акция, открытие, распродажа',
-            href: 'https://litera.studio/dizajn-listovki',
+            href: '/dizajn-listovki',
             img: {
               src: '/img/services/listovki.jpg',
               w: 416,
@@ -282,7 +282,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Флаеры',
             note: 'Небольшой формат под раздачу и вложение',
-            href: 'https://litera.studio/dizajn-flaera',
+            href: '/dizajn-flaera',
             img: {
               src: '/img/services/flaery.jpg',
               w: 416,
@@ -293,7 +293,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Буклеты и лифлеты',
             note: 'Сложение в два-три фальца, под каталог услуг или инструкцию',
-            href: 'https://litera.studio/dizajn-bukleta-lifleta',
+            href: '/dizajn-bukleta-lifleta',
             img: {
               src: '/img/services/buklety.jpg',
               w: 416,
@@ -304,7 +304,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Бирки',
             note: 'На товар и упаковку, с отверстием под шнур',
-            href: 'https://litera.studio/dizajn-birki',
+            href: '/dizajn-birki',
             img: {
               src: '/img/services/birki.jpg',
               w: 416,
@@ -331,7 +331,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Сертификаты для салонов',
             note: 'Отраслевой вариант: под процедуры и абонементы',
-            href: 'https://litera.studio/dizajn-sertifikata-dlya-salona-krasoty',
+            href: '/dizajn-sertifikata-dlya-salona-krasoty',
             img: {
               src: '/img/services/salon.jpg',
               w: 416,
@@ -342,7 +342,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Абонементы',
             note: 'На занятия и услуги, с отрывными купонами',
-            href: 'https://litera.studio/dizajn-abonementov',
+            href: '/dizajn-abonementov',
             img: {
               src: '/img/services/abonementy.jpg',
               w: 416,
@@ -353,7 +353,7 @@ export const listovaya: SectionPage = {
           {
             title: 'Открытки',
             note: 'К празднику и к заказу\u00a0— с конвертом или отдельно',
-            href: 'https://litera.studio/dizajn-otkrytki',
+            href: '/dizajn-otkrytki',
             img: {
               src: '/img/services/otkrytki.jpg',
               w: 416,
@@ -377,8 +377,8 @@ export const listovaya: SectionPage = {
           </p>
         ),
         links: [
-          { href: 'https://litera.studio/dizajn-bejdzha', label: 'Бейджи' },
-          { href: 'https://litera.studio/dizajn-birki', label: 'Бирки' },
+          { href: '/dizajn-bejdzha', label: 'Бейджи' },
+          { href: '/dizajn-birki', label: 'Бирки' },
         ],
       },
       {
@@ -390,8 +390,8 @@ export const listovaya: SectionPage = {
           </p>
         ),
         links: [
-          { href: 'https://litera.studio/dizajn-listovki', label: 'Листовки' },
-          { href: 'https://litera.studio/dizajn-flaera', label: 'Флаеры' },
+          { href: '/dizajn-listovki', label: 'Листовки' },
+          { href: '/dizajn-flaera', label: 'Флаеры' },
         ],
       },
       {
@@ -402,7 +402,7 @@ export const listovaya: SectionPage = {
             блоков текста помещается, но тем аккуратнее нужна вёрстка.
           </p>
         ),
-        links: [{ href: 'https://litera.studio/dizajn-bukleta-lifleta', label: 'Буклеты и лифлеты' }],
+        links: [{ href: '/dizajn-bukleta-lifleta', label: 'Буклеты и лифлеты' }],
       },
       {
         q: 'Диплом или грамота',
@@ -413,8 +413,8 @@ export const listovaya: SectionPage = {
           </p>
         ),
         links: [
-          { href: 'https://litera.studio/dizajn-diploma', label: 'Дипломы' },
-          { href: 'https://litera.studio/dizajn-gramoty', label: 'Грамоты' },
+          { href: '/dizajn-diploma', label: 'Дипломы' },
+          { href: '/dizajn-gramoty', label: 'Грамоты' },
         ],
       },
       {
@@ -427,7 +427,7 @@ export const listovaya: SectionPage = {
         ),
         links: [
           { href: '/dizajn-sertifikata', label: 'Сертификаты' },
-          { href: 'https://litera.studio/dizajn-abonementov', label: 'Абонементы' },
+          { href: '/dizajn-abonementov', label: 'Абонементы' },
         ],
       },
     ],

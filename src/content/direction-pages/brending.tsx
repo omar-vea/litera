@@ -54,7 +54,7 @@ export const brending: DirectionPage = {
     {
       title: 'Корпоративный мерч',
       note: 'Одежда и текстиль: худи, футболки, шоперы, кепки',
-      href: 'https://litera.studio/korporativnyj-merch',
+      href: '/korporativnyj-merch',
       count: '10 услуг',
       img: {
         src: '/img/sections/merch.jpg',
@@ -66,7 +66,7 @@ export const brending: DirectionPage = {
     {
       title: 'Брендирование сувениров',
       note: 'Кружки, ручки, блокноты, термосы, значки',
-      href: 'https://litera.studio/dizajn-suvenirnoj-produkcii',
+      href: '/dizajn-suvenirnoj-produkcii',
       count: '6 услуг',
       img: {
         src: '/img/sections/suveniry.jpg',

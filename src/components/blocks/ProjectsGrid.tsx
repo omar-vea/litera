@@ -68,6 +68,12 @@ function caption(w: Row, names: Record<string, string>) {
   return how ? `${who} · ${how.charAt(0).toLowerCase()}${how.slice(1)}` : who;
 }
 
+// миниатюра `…-1-544x360.jpg` → кадр `…-1.jpg`, как ключ в снимке прода
+const workHref = (w: Row, ids: Map<string, number>) => {
+  const id = ids.get(w[3].replace(/-\d+x\d+(?=\.\w+$)/, ''));
+  return id ? `/projects/${id}` : '/projects/sertifikat-bourbaki';
+};
+
 const pickProd = (w: Row) => (w[2] ? [w[2]] : []);
 const pickTech = (w: Row) => w[5] ?? [];
 const pickInd = (w: Row) => w[4] ?? [];
@@ -77,6 +83,7 @@ export function ProjectsGrid() {
   const router = useRouter();
   const pathname = usePathname();
   const [data, setData] = useState<Data | null>(null);
+  const [ids, setIds] = useState<Map<string, number>>(new Map());
   const [shown, setShown] = useState(PAGE);
 
   useEffect(() => {
@@ -86,6 +93,13 @@ export function ProjectsGrid() {
       .then((d) => {
         if (alive) setData(d);
       });
+    // Страницы работ — из снимка прода; плитку с работой находим по файлу кадра.
+    fetch(withBase('/prod/projects.json'))
+      .then((r) => r.json() as Promise<{ id: number; key: string }[]>)
+      .then((list) => {
+        if (alive) setIds(new Map(list.map((p) => [p.key, p.id])));
+      })
+      .catch(() => {});
     return () => {
       alive = false;
     };
@@ -178,8 +192,7 @@ export function ProjectsGrid() {
           {data &&
             visible.map((w) => (
               <li key={w[3]} className="ls-work">
-                {/* Своя страница пока только у одной работы — плитки ведут на неё, как в прототипе. */}
-                <Link href="/projects/sertifikat-bourbaki" data-cursor="Посмотреть работу">
+                <Link href={workHref(w, ids)} data-cursor="Посмотреть работу">
                   <Image
                     width={544}
                     height={360}

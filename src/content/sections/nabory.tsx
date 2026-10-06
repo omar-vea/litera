@@ -249,7 +249,7 @@ export const nabory: SectionPage = {
       {
         title: 'Корпоративный мерч',
         note: 'Одежда и текстиль с фирменным знаком',
-        href: 'https://litera.studio/korporativnyj-merch',
+        href: '/korporativnyj-merch',
         img: {
           src: '/img/nabory/merch.jpg',
           alt: 'Толстовка с принтом на спине',
@@ -258,7 +258,7 @@ export const nabory: SectionPage = {
       {
         title: 'Брендирование сувениров',
         note: 'Кружки, ручки, блокноты, термосы',
-        href: 'https://litera.studio/dizajn-suvenirnoj-produkcii',
+        href: '/dizajn-suvenirnoj-produkcii',
         img: {
           src: '/img/nabory/suveniry.jpg',
           alt: 'Термобутылка и сувениры в коробке с ложементом',

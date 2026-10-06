@@ -3,7 +3,7 @@ import { BackLink } from './BackLink';
 type Props = {
   back: { href: string; label: string };
   title: string;
-  desc: string;
+  desc?: string;
   /**
    * Раздел: описание стоит в сером поле под заголовком (`is-solo`).
    * Направление: в поле только заголовок, описание — ниже, на белом листе:
@@ -24,7 +24,7 @@ export function PageLead({ back, title, desc, solo }: Props) {
         <div className="ls-page-lead is-solo">
           <BackLink {...back} />
           <h1 className="ls-title">{title}</h1>
-          <p className="ls-desc">{desc}</p>
+          {desc && <p className="ls-desc">{desc}</p>}
         </div>
       </div>
     );
@@ -40,7 +40,7 @@ export function PageLead({ back, title, desc, solo }: Props) {
       <div className="ls-body">
         {/* метка для телефона: по ней белеет шапка и выезжает виджет связи */}
         <i className="ls-body-sentinel ls-chat-sentinel" aria-hidden="true" />
-        <p className="ls-desc">{desc}</p>
+        {desc && <p className="ls-desc">{desc}</p>}
       </div>
     </>
   );

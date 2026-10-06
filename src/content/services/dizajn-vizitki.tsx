@@ -235,7 +235,7 @@ export const vizitki: ServiceData = {
         img: { src: '/img/services/konverty.jpg', alt: 'Конверты с фирменным дизайном' },
         title: 'Конверты',
         note: 'Под сертификат или приглашение, с печатью изнутри',
-        href: 'https://litera.studio/dizajn-konverta',
+        href: '/dizajn-konverta',
       },
     ],
   },

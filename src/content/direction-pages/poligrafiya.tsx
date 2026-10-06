@@ -56,7 +56,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Многостраничные издания',
       note: 'Всё, что сшивается: каталоги, книги, брошюры',
-      href: 'https://litera.studio/dizajn-mnogostranichnoj-produkcii',
+      href: '/dizajn-mnogostranichnoj-produkcii',
       count: '11 услуг',
       img: {
         src: '/img/sections/mnogostr.jpg',
@@ -68,7 +68,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Вёрстка полиграфии',
       note: 'Ваш текст и картинки\u00a0— в макет под печать',
-      href: 'https://litera.studio/verstka-poligrafii',
+      href: '/verstka-poligrafii',
       count: '16 услуг',
       img: {
         src: '/img/sections/verstka.jpg',
@@ -80,7 +80,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Календари',
       note: 'Настенные, настольные, карманные и адвент',
-      href: 'https://litera.studio/dizajn-kalendarya',
+      href: '/dizajn-kalendarya',
       count: '6 услуг',
       img: {
         src: '/img/sections/kalendari.jpg',
@@ -92,7 +92,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Широкоформатная',
       note: 'Крупный формат: стены, витрины, мероприятия',
-      href: 'https://litera.studio/dizajn-shirokoformatnoj-poligrafii',
+      href: '/dizajn-shirokoformatnoj-poligrafii',
       count: '6 услуг',
       img: {
         src: '/img/sections/shirokoformat.jpg',
@@ -116,7 +116,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Папки, печати, пластиковые карты',
       note: 'Офисная оснастка и карты для клиентов',
-      href: 'https://litera.studio/pechati-papki-plastikovye-karty',
+      href: '/pechati-papki-plastikovye-karty',
       count: '6 услуг',
       img: {
         src: '/img/sections/papki.jpg',
@@ -128,7 +128,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Свадебная полиграфия',
       note: 'Приглашения, рассадка, конверты\u00a0— в одном стиле',
-      href: 'https://litera.studio/svadebnaya-poligrafiya',
+      href: '/svadebnaya-poligrafiya',
       count: '5 услуг',
       img: {
         src: '/img/sections/svadba.jpg',
@@ -152,7 +152,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Иллюстрации',
       note: 'Рисунок под печать и упаковку',
-      href: 'https://litera.studio/illyustracii',
+      href: '/illyustracii',
       count: '4 услуги',
       img: {
         src: '/img/sections/illyustracii.jpg',
@@ -164,7 +164,7 @@ export const poligrafiya: DirectionPage = {
     {
       title: 'Подготовка к печати',
       note: 'Проверка чужого макета перед тиражом',
-      href: 'https://litera.studio/prepress',
+      href: '/prepress',
       count: '3 услуги',
       img: {
         src: '/img/sections/prepress.jpg',

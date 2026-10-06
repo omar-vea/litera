@@ -126,7 +126,7 @@ export const advent: ServiceData = {
       ],
     },
   ],
-  back: { href: 'https://litera.studio/dizajn-kalendarya', label: 'Календари' },
+  back: { href: '/dizajn-kalendarya', label: 'Календари' },
   title: 'Адвент-календарь',
   desc: 'Придумаем конструкцию под ваше наполнение, нарисуем дизайн и сделаем тираж на своём производстве.',
   hero: {
@@ -569,25 +569,25 @@ export const advent: ServiceData = {
   },
   related: {
     title: 'Ещё из календарей',
-    all: { href: 'https://litera.studio/dizajn-kalendarya', label: 'Весь раздел' },
+    all: { href: '/dizajn-kalendarya', label: 'Весь раздел' },
     items: [
       {
         img: { src: '/img/services/kvartalnye.jpg', alt: 'Квартальный календарь с тремя блоками' },
         title: 'Квартальные',
         note: 'Три месяца на стене, с рекламным полем или без',
-        href: 'https://litera.studio/dizajn-kvartalnogo-kalendarya',
+        href: '/dizajn-kvartalnogo-kalendarya',
       },
       {
         img: { src: '/img/services/nastolnye.jpg', alt: 'Настольный перекидной календарь-домик' },
         title: 'Настольные',
         note: 'Домик на пружине, стоит на столе у клиента весь год',
-        href: 'https://litera.studio/dizajn-nastolnogo-kalendarya',
+        href: '/dizajn-nastolnogo-kalendarya',
       },
       {
         img: { src: '/img/services/perekidnye.jpg', alt: 'Перекидной настенный календарь' },
         title: 'Перекидные',
         note: 'Настенный, двенадцать разворотов под ваши фотографии',
-        href: 'https://litera.studio/dizajn-perekidnogo-kalendarya',
+        href: '/dizajn-perekidnogo-kalendarya',
       },
     ],
   },

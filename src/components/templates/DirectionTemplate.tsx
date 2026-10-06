@@ -34,7 +34,7 @@ export function DirectionTemplate({ page }: { page: DirectionPage }) {
         <SectionList items={page.sections} />
         {page.works && <Works set={page.works} />}
         <HowWeWork />
-        <About {...page.about} />
+        {page.about && <About {...page.about} />}
         <Proof />
         <LeadForm />
         <Directions title="Другие направления" exclude={page.slug} more />

@@ -39,8 +39,8 @@ export type SectionPage = {
   desc: string;
   /** Колонки групп: раскладку на десктопе держит CSS по числу услуг в группе. */
   catalog: CatalogGroup[][];
-  choose: { title: string; items: QA[] };
-  works: WorksSet;
-  about: { title: string; lead: ReactNode; more?: ReactNode };
-  related: { title: string; all: { href: string; label: string }; items: RelatedItem[] };
+  choose?: { title: string; items: QA[] };
+  works?: WorksSet;
+  about?: { title: string; lead: ReactNode; more?: ReactNode };
+  related?: { title: string; all: { href: string; label: string }; items: RelatedItem[] };
 };

@@ -17,7 +17,11 @@ const nextConfig: NextConfig = {
     loaderFile: './src/lib/image-loader.ts',
     // Обложки блога и миниатюры портфолио пока лежат на живом сайте.
     // Когда статьи и работы переедут в CMS, файлы станут своими и строка уйдёт.
-    remotePatterns: [{ protocol: 'https', hostname: 'litera.studio', pathname: '/wp-content/uploads/**' }],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'litera.studio', pathname: '/wp-content/uploads/**' },
+      // Страницы из снимка прода (ProdPage): файлы Payload.
+      { protocol: 'https', hostname: 'litera.studio', pathname: '/api/media/**' },
+    ],
   },
 };
 

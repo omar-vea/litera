@@ -50,14 +50,8 @@ const SYN = Object.fromEntries(Object.entries(SYNONYMS).map(([k, v]) => [norm(k)
 // «бирка» находит «Бирки»: морфология не нужна, хватает отсечь последнюю букву.
 const stem = (w: string) => (w.length > 4 ? w.slice(0, -1) : w);
 
-// Свои страницы есть не у всех услуг; остальные ведут на живой сайт.
-const LOCAL = new Set([
-  '/dizajn-sertifikata',
-  '/dizajn-advent-kalendarya',
-  '/dizajn-vizitki',
-  '/dizajn-menyu',
-]);
-const url = (path: string) => (LOCAL.has(path) ? withBase(path) : `https://litera.studio${path}`);
+// Все услуги прода открываются в прототипе: чего нет в сборке, рисует ProdPage из снимка.
+const url = (path: string) => withBase(path);
 
 function search(data: Data, names: string[], raw: string): number[] {
   const q = norm(raw);

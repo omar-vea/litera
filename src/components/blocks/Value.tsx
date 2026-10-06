@@ -4,7 +4,7 @@ import { withBase } from '@/lib/base';
 import '@/styles/shared/button-row.css';
 
 /** «Зачем … бизнесу» / «От чего зависит цена»: доводы строками со знаком. */
-export function Value({ title, items, link }: ServiceData['value']) {
+export function Value({ title, items, link }: NonNullable<ServiceData['value']>) {
   return (
     <section className="ls-value">
       <h2>{title}</h2>
