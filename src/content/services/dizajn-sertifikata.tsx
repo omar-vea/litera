@@ -238,23 +238,6 @@ export const sertifikat: ServiceData = {
       text: 'Посмотрим и вернёмся со списком, что в нём чинить. Это бесплатно и ни к чему не обязывает.',
       button: 'Проверить макет',
     },
-    requirements: {
-      href: '/trebovaniya-k-maketam',
-      pic: {
-        src: '/img/trebovaniya.webp',
-        w: 1430,
-        h: 1055,
-        alt: 'Требования к макетам: CMYK, 300 dpi, шрифты в кривые, вылеты не менее 3 мм, отступы от края реза не менее 5 мм',
-      },
-      thumb: {
-        src: '/img/trebovaniya.webp',
-        w: 1430,
-        h: 1055,
-        alt: 'Памятка по требованиям: CMYK, 300 dpi, вылеты и отступы',
-      },
-      title: 'Требования к макетам',
-      text: 'CMYK, 300\u00a0dpi, вылеты 3\u00a0мм, шрифты в кривых',
-    },
   },
   specs: {
     title: 'Материалы и отделка',

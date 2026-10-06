@@ -139,7 +139,7 @@
     height: 18px;
     border-radius: 50%;
     z-index: 2;
-    background: rgba(var(--paper-rgb), 0.82) url('/img/zoom.svg') center / 10px 10px no-repeat;
+    background: rgba(var(--paper-rgb), 0.82) url('/litera/img/zoom.svg') center / 10px 10px no-repeat;
     transition: opacity 0.16s var(--ease);
   }
   .ls-rows .ls-thumb:has(img):hover::before {
@@ -177,7 +177,7 @@
     height: 18px;
     border-radius: 50%;
     z-index: 2;
-    background: rgba(var(--paper-rgb), 0.82) url('/img/zoom.svg') center / 10px 10px no-repeat;
+    background: rgba(var(--paper-rgb), 0.82) url('/litera/img/zoom.svg') center / 10px 10px no-repeat;
     transition: opacity 0.16s var(--ease);
   }
   .ls-specs .ls-thumb.ls-is-zoom::before {

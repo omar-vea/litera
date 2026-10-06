@@ -294,30 +294,6 @@
   }
 }
 
-/* Памятка стоит под плашкой, а не внутри неё: в рамке она читалась частью
-   призыва, хотя это просто справка — её открывают до отправки, а не вместо.
-   Подчёркивание у названия — как у ссылок в тексте, чтобы строка читалась
-   ссылкой, а не заголовком. */
-.ls-rows.ls-ba-req {
-  margin-top: 28px;
-}
-/* Миниатюра памятки — не вся страница в 76 пикселей, из которой ничего
-   не разобрать, а её левый верхний угол: там цветовая модель и разрешение,
-   по ним лист и узнаётся. */
-.ls-ba-req .ls-thumb img {
-  object-position: left top;
-}
-.ls-ba-req .ls-row-body b {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--line-strong);
-  transition: text-decoration-color 0.18s var(--ease);
-}
-.ls-ba-req .ls-row-body:hover b {
-  text-decoration-color: var(--ink);
-}
-
 /* Боковые поля на широких экранах: `--side` растёт вместе с шириной. */
 @media (min-width: 600px) {
   .ls-ba {

@@ -1,3 +1,5 @@
+import { withBase } from '@/lib/base';
+
 /**
  * Иконки одним спрайтом (`public/icons.svg`), ссылка через <use>.
  * Размер задаёт внешний <svg>; цвет — `currentColor` у символа.
@@ -36,7 +38,7 @@ export function Icon({ name, width, height, className }: Props) {
       aria-hidden="true"
       focusable="false"
     >
-      <use href={`/icons.svg#i-${name}`} />
+      <use href={withBase(`/icons.svg#i-${name}`)} />
     </svg>
   );
 }

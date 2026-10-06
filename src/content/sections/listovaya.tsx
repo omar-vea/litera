@@ -371,94 +371,64 @@ export const listovaya: SectionPage = {
       {
         q: 'Бейдж или бирка',
         a: (
-          <>
-            <p>
-              Бейдж носит человек&nbsp;— на ленте или клипсе, с именем и должностью. Бирка вешается на товар:
-              состав, размер, цена, отверстие под шнур.
-            </p>
-            <p className="ls-qa-links">
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-bejdzha">
-                Бейджи
-              </a>
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-birki">
-                Бирки
-              </a>
-            </p>
-          </>
+          <p>
+            Бейдж носит человек&nbsp;— на ленте или клипсе, с именем и должностью. Бирка вешается на товар:
+            состав, размер, цена, отверстие под шнур.
+          </p>
         ),
+        links: [
+          { href: 'https://litera.studio/dizajn-bejdzha', label: 'Бейджи' },
+          { href: 'https://litera.studio/dizajn-birki', label: 'Бирки' },
+        ],
       },
       {
         q: 'Листовка или флаер',
         a: (
-          <>
-            <p>
-              Листовка крупнее, обычно А5 или А6, и на ней помещается текст: условия акции, адреса, схема
-              проезда. Флаер меньше и рассчитан на раздачу в руки&nbsp;— одна мысль, один призыв.
-            </p>
-            <p className="ls-qa-links">
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-listovki">
-                Листовки
-              </a>
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-flaera">
-                Флаеры
-              </a>
-            </p>
-          </>
+          <p>
+            Листовка крупнее, обычно А5 или А6, и на ней помещается текст: условия акции, адреса, схема
+            проезда. Флаер меньше и рассчитан на раздачу в руки&nbsp;— одна мысль, один призыв.
+          </p>
         ),
+        links: [
+          { href: 'https://litera.studio/dizajn-listovki', label: 'Листовки' },
+          { href: 'https://litera.studio/dizajn-flaera', label: 'Флаеры' },
+        ],
       },
       {
         q: 'Буклет или лифлет',
         a: (
-          <>
-            <p>
-              Разница в сложении: у буклета один сгиб, у лифлета два и больше. Чем больше сгибов, тем больше
-              блоков текста помещается, но тем аккуратнее нужна вёрстка.
-            </p>
-            <p className="ls-qa-links">
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-bukleta-lifleta">
-                Буклеты и лифлеты
-              </a>
-            </p>
-          </>
+          <p>
+            Разница в сложении: у буклета один сгиб, у лифлета два и больше. Чем больше сгибов, тем больше
+            блоков текста помещается, но тем аккуратнее нужна вёрстка.
+          </p>
         ),
+        links: [{ href: 'https://litera.studio/dizajn-bukleta-lifleta', label: 'Буклеты и лифлеты' }],
       },
       {
         q: 'Диплом или грамота',
         a: (
-          <>
-            <p>
-              Диплом выдают за пройденный курс или занятое место, грамоту&nbsp;— за заслугу или достижение. На
-              печати разницы нет, отличается только текст и вёрстка.
-            </p>
-            <p className="ls-qa-links">
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-diploma">
-                Дипломы
-              </a>
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-gramoty">
-                Грамоты
-              </a>
-            </p>
-          </>
+          <p>
+            Диплом выдают за пройденный курс или занятое место, грамоту&nbsp;— за заслугу или достижение. На
+            печати разницы нет, отличается только текст и вёрстка.
+          </p>
         ),
+        links: [
+          { href: 'https://litera.studio/dizajn-diploma', label: 'Дипломы' },
+          { href: 'https://litera.studio/dizajn-gramoty', label: 'Грамоты' },
+        ],
       },
       {
         q: 'Сертификат или абонемент',
         a: (
-          <>
-            <p>
-              Сертификат на сумму: человек тратит номинал, как хочет. Абонемент на количество: восемь занятий,
-              пять процедур. Абонементу нужны отрывные купоны или поле для отметок.
-            </p>
-            <p className="ls-qa-links">
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="/dizajn-sertifikata">
-                Сертификаты
-              </a>
-              <a className="ls-btn ls-btn-line ls-btn-xs" href="https://litera.studio/dizajn-abonementov">
-                Абонементы
-              </a>
-            </p>
-          </>
+          <p>
+            Сертификат на сумму: человек тратит номинал, как хочет. Абонемент на количество: восемь занятий,
+            пять процедур. Абонементу нужны отрывные купоны или поле для отметок.
+          </p>
         ),
+        links: [
+          { href: '/dizajn-sertifikata', label: 'Сертификаты' },
+          { href: 'https://litera.studio/dizajn-abonementov', label: 'Абонементы' },
+        ],
       },
     ],
   },

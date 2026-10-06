@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { reqChecklists, reqGroups, reqRules } from '@/content/requirements';
+import { withBase } from '@/lib/base';
 import '@/styles/shared/form.css';
 import '@/styles/shared/faq.css';
 import '@/styles/shared/article.css';
@@ -22,7 +23,7 @@ export function RequirementsRules() {
         ))}
       </ul>
       <p className="ls-req-pdf">
-        <a className="ls-btn ls-btn-line ls-btn-s" href={PDF.href} download>
+        <a className="ls-btn ls-btn-line ls-btn-s" href={withBase(PDF.href)} download>
           {PDF.label}
         </a>
       </p>

@@ -49,7 +49,6 @@ export type ServiceData = {
     after: Img;
     text: ReactNode;
     cta: { title: string; text: ReactNode; button: string };
-    requirements: { href: string; pic: Img; thumb: Img; title: string; text: ReactNode };
   };
   specs?: { title: string; cols: SpecGroup[][] };
   /** Шаги со сроками под продукт; без них — общие шаги. */

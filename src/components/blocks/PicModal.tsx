@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@/components/ui/Icon';
+import { withBase } from '@/lib/base';
 import '@/styles/shared/modal.css';
 
 export type Pic = { src: string; alt: string };
@@ -83,7 +84,7 @@ export function PicModal({ pics, index, onIndex }: Props) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           ref={img}
-          src={pic.src}
+          src={withBase(pic.src)}
           alt={pic.alt}
           onLoad={(e) => {
             const el = e.currentTarget;

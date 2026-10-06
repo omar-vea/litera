@@ -162,9 +162,18 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
-/* Кадры разделов — только на широком экране (ниже, в плитках). */
-.ls-catalog.is-plain .ls-thumb {
-  display: none;
+/* На телефоне кадр раздела — квадрат слева от строки, как в материалах:
+   в полную ширину 170 пикселей показывали кашу из предметов, а обложка
+   нужна для узнавания. На широком экране — плитки (ниже). */
+@media (max-width: 1023px) {
+  .ls-catalog.is-plain .ls-row-body:has(.ls-thumb) {
+    grid-template-columns: 76px minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 14px 0;
+  }
+  .ls-catalog.is-plain .ls-count {
+    align-self: start;
+  }
 }
 /* Цвет направления малым акцентом: начало каждой линии в цвет
    направления, плавно уходящий в серый, и название в цвет вместо подчёркивания при наведении —

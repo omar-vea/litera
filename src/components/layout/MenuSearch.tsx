@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@/components/ui/Icon';
+import { withBase } from '@/lib/base';
 
 /**
  * Поиск по услугам: подсказки по мере набора, синонимы из реальных запросов.
@@ -56,7 +57,7 @@ const LOCAL = new Set([
   '/dizajn-vizitki',
   '/dizajn-menyu',
 ]);
-const url = (path: string) => (LOCAL.has(path) ? path : `https://litera.studio${path}`);
+const url = (path: string) => (LOCAL.has(path) ? withBase(path) : `https://litera.studio${path}`);
 
 function search(data: Data, names: string[], raw: string): number[] {
   const q = norm(raw);
@@ -89,7 +90,7 @@ function search(data: Data, names: string[], raw: string): number[] {
 
 let cache: Promise<{ data: Data; names: string[] }> | null = null;
 const load = () =>
-  (cache ??= fetch('/data/services.json')
+  (cache ??= fetch(withBase('/data/services.json'))
     .then((r) => r.json() as Promise<Data>)
     .then((data) => ({ data, names: data.s.map((x) => norm(x[0])) })));
 

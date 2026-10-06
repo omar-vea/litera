@@ -21,6 +21,7 @@ export const sectionMetadata = (page: SectionPage): Metadata => pageMetadata(pag
  * и соседние разделы. «О …» стоит после формы: это текст для поиска.
  */
 export function SectionTemplate({ page }: { page: SectionPage }) {
+  const thumbs = new Map(page.catalog.flat(2).flatMap((g) => g.items.map((t) => [t.href, t.img] as const)));
   return (
     <>
       {/* JSON-LD вне <main>: внутри он сбивал правила :first-child/:last-child
@@ -38,7 +39,13 @@ export function SectionTemplate({ page }: { page: SectionPage }) {
         <i className="ls-chat-sentinel" aria-hidden="true" />
 
         <Catalog columns={page.catalog} />
-        <Faq title={page.choose.title} items={page.choose.items} variant="choose" id="vybor" />
+        <Faq
+          title={page.choose.title}
+          items={page.choose.items}
+          variant="choose"
+          id="vybor"
+          thumbs={thumbs}
+        />
         <Works set={page.works} />
         <HowWeWork />
         <Proof />

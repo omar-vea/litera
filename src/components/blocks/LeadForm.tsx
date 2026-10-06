@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { site } from '@/content/site';
 import { submitLead } from '@/app/actions.static';
 import type { LeadState } from '@/app/actions';
+import { withBase } from '@/lib/base';
 import '@/styles/shared/form.css';
 
 const FILE_LIMIT = 25 * 1024 * 1024; // отраслевая норма для макетов
@@ -56,7 +57,7 @@ export function LeadForm() {
   return (
     <section className="ls-lead-form" id="zayavka">
       <svg className="ls-lead-mark" viewBox="0 0 113.12 161.82" aria-hidden="true">
-        <use href="/icons.svg#i-mark" />
+        <use href={withBase('/icons.svg#i-mark')} />
       </svg>
       <h2>
         {sent ? (
@@ -79,7 +80,7 @@ export function LeadForm() {
         <div className="ls-sent" role="status" tabIndex={-1} ref={done}>
           <span className="ls-sent-mark">
             <svg viewBox="0 0 113.12 161.82" aria-hidden="true">
-              <use href="/icons.svg#i-mark" />
+              <use href={withBase('/icons.svg#i-mark')} />
             </svg>
           </span>
         </div>

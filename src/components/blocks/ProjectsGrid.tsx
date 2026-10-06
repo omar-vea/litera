@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
+import { withBase } from '@/lib/base';
 import '@/styles/shared/form.css';
 import './Works.css';
 import './ProjectsGrid.css';
@@ -80,7 +81,7 @@ export function ProjectsGrid() {
 
   useEffect(() => {
     let alive = true;
-    fetch('/data/works.json')
+    fetch(withBase('/data/works.json'))
       .then((r) => r.json() as Promise<Data>)
       .then((d) => {
         if (alive) setData(d);

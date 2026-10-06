@@ -121,8 +121,9 @@
     filter: none;
     background: linear-gradient(to bottom, var(--surface-2), var(--paper) 120px);
   }
+  /* Во всю ширину: в 34ch справа оставалась пустая полоса. */
   .ls-card:has(.ls-page-lead) .ls-body p.ls-desc {
-    max-width: 34ch;
+    max-width: none;
   }
 }
 /* На планшете 34ch давали колонку телефона под списком во всю ширину. */

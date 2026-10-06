@@ -1,11 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { ServiceData } from '@/content/services/types';
-import { PicModal } from './PicModal';
-import '@/styles/shared/rows.css';
 import '@/styles/shared/article.css';
 import './BeforeAfter.css';
 
@@ -18,14 +15,13 @@ type Props = NonNullable<ServiceData['beforeAfter']>;
  * Рядом — приём макета: кнопка ведёт к форме и открывает выбор файла,
  * файл можно бросить прямо на блок.
  */
-export function BeforeAfter({ title, before, after, text, cta, requirements }: Props) {
+export function BeforeAfter({ title, before, after, text, cta }: Props) {
   const frame = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(50);
   const [demo, setDemo] = useState(false);
   const [easing, setEasing] = useState(false);
   const [over, setOver] = useState(false);
   const [fine, setFine] = useState(true);
-  const [pic, setPic] = useState<number | null>(null);
   const pointer = useRef<number | null>(null);
   const raf = useRef(0);
 
@@ -162,38 +158,7 @@ export function BeforeAfter({ title, before, after, text, cta, requirements }: P
           </a>
           <span className="ls-ba-drop">или перетащите файл сюда</span>
         </div>
-        <ul className="ls-rows ls-ba-req">
-          <li>
-            <Link
-              className="ls-row-body"
-              href={requirements.href}
-              onClick={(e) => {
-                e.preventDefault();
-                setPic(0);
-              }}
-            >
-              <span className="ls-thumb">
-                <Image
-                  src={requirements.thumb.src}
-                  width={requirements.thumb.w}
-                  height={requirements.thumb.h}
-                  alt={requirements.thumb.alt}
-                  sizes="80px"
-                />
-              </span>
-              <div>
-                <b>{requirements.title}</b>
-                <p>{requirements.text}</p>
-              </div>
-            </Link>
-          </li>
-        </ul>
       </div>
-      <PicModal
-        pics={[{ src: requirements.pic.src, alt: requirements.pic.alt }]}
-        index={pic}
-        onIndex={setPic}
-      />
     </section>
   );
 }

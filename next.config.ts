@@ -1,11 +1,14 @@
 import type { NextConfig } from 'next';
 
+const basePath = '/litera';
+
 const nextConfig: NextConfig = {
   // Индикатор режима разработки перекрывал угол страницы на снимках сверки.
   devIndicators: false,
   // Статический прототип для согласования с заказчиком на GitHub Pages.
   output: 'export',
-  basePath: '/litera',
+  basePath,
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
   images: {
     formats: ['image/avif', 'image/webp'],
     // Статический экспорт не умеет в серверную оптимизацию картинок,
