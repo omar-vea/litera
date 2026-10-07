@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { ArticleData } from '@/components/templates/ArticleTemplate';
 import { postByHref } from '@/content/blog';
 
@@ -31,7 +32,7 @@ export const kakojFormatFajla: ArticleData = {
       </p>
       <p>
         Чтобы этого не произошло, в статье расскажем, какой формат нужен для{' '}
-        <a href="/prepress">печати в типографии</a>. А также затронем другие тонкости, которые необходимо
+        <Link href="/prepress">печати в типографии</Link>. А также затронем другие тонкости, которые необходимо
         учесть при подготовке макета, чтобы на бумаге все было таким же, как на экране компьютера.
       </p>
       <h2>Кратко об основах: в чем разница между растровым и векторным изображением</h2>
@@ -124,7 +125,7 @@ export const kakojFormatFajla: ArticleData = {
         Хотя векторный формат проще масштабировать под любые носители, у типографий с такими файлами тоже
         возникает немало вопросов. Самый простой, почти гарантированный способ избежать проблем&nbsp;—
         отправить на печать макет, сохраненный в формате PDF. Даже если речь идет о книге, журнале и другой{' '}
-        <a href="/podgotovka-mnogopolosnaya-poligrafiya">многополосной полиграфии</a> с большим количеством
+        <Link href="/podgotovka-mnogopolosnaya-poligrafiya">многополосной полиграфии</Link> с большим количеством
         страниц.
       </p>
       <figure>
@@ -163,8 +164,8 @@ export const kakojFormatFajla: ArticleData = {
     </>
   ),
   related: [
-    postByHref('https://litera.studio/blog/kak-sdelat-vizitku-v-photoshop-za-20-minut'),
-    postByHref('https://litera.studio/blog/pochemu-cvet-pri-pechati-ne-takoj-kak-na-ehkrane'),
-    postByHref('https://litera.studio/blog/cvetoproba-pechati-naznachenie-osobennosti-pravilo-3-dnej'),
+    postByHref('/blog/kak-sdelat-vizitku-v-photoshop-za-20-minut'),
+    postByHref('/blog/pochemu-cvet-pri-pechati-ne-takoj-kak-na-ehkrane'),
+    postByHref('/blog/cvetoproba-pechati-naznachenie-osobennosti-pravilo-3-dnej'),
   ],
 };

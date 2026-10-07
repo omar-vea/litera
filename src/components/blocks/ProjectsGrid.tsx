@@ -10,7 +10,7 @@ import './Works.css';
 import './ProjectsGrid.css';
 
 /**
- * Портфолио: сетка из `/data/works.json` (выгрузка с сайта студии, 813 работ),
+ * Портфолио: сетка из `/data/works.json` (снимок работ прода, собирается при сборке),
  * фильтр по направлению, услуге, технологии и отрасли, показ порциями.
  * Фильтр живёт в адресе (`?dir=…&prod=…&tech=…&ind=…`): по таким ссылкам сюда
  * ведут паспорт кейса и «Все сертификаты».
@@ -22,15 +22,15 @@ import './ProjectsGrid.css';
 type Row = [
   title: string,
   dir: string,
-  service: string,
+  services: string[],
   image: string,
-  industries?: string[],
-  techs?: string[],
+  industries: string[],
+  techs: string[],
+  id: number,
 ];
 type Data = { g: Record<string, string>; w: Row[] };
 
 const PAGE = 24;
-const PRE = 'https://litera.studio/wp-content/uploads/';
 const DIRS = [
   { value: '', label: 'Все' },
   { value: 'poligrafiya', label: 'Полиграфия' },
@@ -57,7 +57,7 @@ function options(rows: Row[], dir: string, pick: (w: Row) => string[]) {
  * пакеты») — направление. Сравниваем по корню первого слова. Справа первая технология.
  */
 function caption(w: Row, names: Record<string, string>) {
-  const [title, dir, service, , inds = [], techs = []] = w;
+  const [title, dir, [service], , inds, techs] = w;
   let who = inds[0] || service || names[dir];
   if (!inds[0] && service) {
     const first = service.split(' ')[0].toLowerCase().replace(/ё/g, 'е');
@@ -68,22 +68,15 @@ function caption(w: Row, names: Record<string, string>) {
   return how ? `${who} · ${how.charAt(0).toLowerCase()}${how.slice(1)}` : who;
 }
 
-// миниатюра `…-1-544x360.jpg` → кадр `…-1.jpg`, как ключ в снимке прода
-const workHref = (w: Row, ids: Map<string, number>) => {
-  const id = ids.get(w[3].replace(/-\d+x\d+(?=\.\w+$)/, ''));
-  return id ? `/projects/${id}` : '/projects/sertifikat-bourbaki';
-};
-
-const pickProd = (w: Row) => (w[2] ? [w[2]] : []);
-const pickTech = (w: Row) => w[5] ?? [];
-const pickInd = (w: Row) => w[4] ?? [];
+const pickProd = (w: Row) => w[2];
+const pickTech = (w: Row) => w[5];
+const pickInd = (w: Row) => w[4];
 
 export function ProjectsGrid() {
   const params = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const [data, setData] = useState<Data | null>(null);
-  const [ids, setIds] = useState<Map<string, number>>(new Map());
   const [shown, setShown] = useState(PAGE);
 
   useEffect(() => {
@@ -93,13 +86,6 @@ export function ProjectsGrid() {
       .then((d) => {
         if (alive) setData(d);
       });
-    // Страницы работ — из снимка прода; плитку с работой находим по файлу кадра.
-    fetch(withBase('/prod/projects.json'))
-      .then((r) => r.json() as Promise<{ id: number; key: string }[]>)
-      .then((list) => {
-        if (alive) setIds(new Map(list.map((p) => [p.key, p.id])));
-      })
-      .catch(() => {});
     return () => {
       alive = false;
     };
@@ -127,9 +113,9 @@ export function ProjectsGrid() {
       rows.filter(
         (w) =>
           (!filter.dir || w[1] === filter.dir) &&
-          (!filter.prod || w[2] === filter.prod) &&
-          (!filter.tech || (w[5] ?? []).includes(filter.tech)) &&
-          (!filter.ind || (w[4] ?? []).includes(filter.ind)),
+          (!filter.prod || w[2].includes(filter.prod)) &&
+          (!filter.tech || w[5].includes(filter.tech)) &&
+          (!filter.ind || w[4].includes(filter.ind)),
       ),
     [rows, filter.dir, filter.prod, filter.tech, filter.ind],
   );
@@ -191,12 +177,12 @@ export function ProjectsGrid() {
         <ul>
           {data &&
             visible.map((w) => (
-              <li key={w[3]} className="ls-work">
-                <Link href={workHref(w, ids)} data-cursor="Посмотреть работу">
+              <li key={w[6]} className="ls-work">
+                <Link href={`/projects/${w[6]}`} data-cursor="Посмотреть работу">
                   <Image
                     width={544}
                     height={360}
-                    src={PRE + w[3]}
+                    src={w[3]}
                     alt={w[0]}
                     sizes="(min-width: 1024px) 33vw, 50vw"
                   />

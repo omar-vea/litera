@@ -27,21 +27,14 @@ export const site = {
     { label: 'Behance', href: 'https://www.behance.net/litera_studio/' },
     { label: 'YouTube', href: 'https://www.youtube.com/@Litera.Studio' },
   ],
+  // Документы — страницы из Payload прода. Политики обработки ПД и положения о cookies
+  // на проде нет (старые адреса отдают 404): без адреса ссылка не выводится, ждём тексты.
   legal: [
-    {
-      label: 'Политика обработки персональных данных',
-      href: 'https://litera.studio/politika-obrabotki-personalnyh-dannyh',
-    },
-    {
-      label: 'Согласие на обработку данных',
-      href: 'https://litera.studio/soglasie-na-obrabotku-personalnyh-dannyh',
-    },
-    {
-      label: 'Обработка файлов cookies',
-      href: 'https://litera.studio/polozhenie-ob-obrabotke-fajlov-cookies',
-    },
-    { label: 'Публичная оферта', href: 'https://litera.studio/publichnaya-oferta' },
-    { label: 'Пользовательское соглашение', href: 'https://litera.studio/terms' },
+    { label: 'Политика обработки персональных данных', href: '' },
+    { label: 'Согласие на обработку данных', href: '/politika-konfidenczialnosti' },
+    { label: 'Обработка файлов cookies', href: '' },
+    { label: 'Публичная оферта', href: '/publichnaya-oferta' },
+    { label: 'Пользовательское соглашение', href: '/terms' },
   ],
   company: {
     name: 'ООО\u00a0«МДМпринт»',

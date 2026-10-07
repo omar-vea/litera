@@ -2,7 +2,7 @@
  * Четыре направления каталога. Одни и те же пункты на главной («Что делаем»),
  * в «Других направлениях» на странице направления, в футере и в меню.
  * В Payload — коллекция `directions`; счёт услуг считается по опубликованным
- * услугам, здесь он вписан до подключения CMS.
+ * услугам, здесь он вписан до подключения CMS — по снимку прода 07.10.2026, без рекламы и POS.
  */
 
 export type Direction = {
@@ -20,7 +20,7 @@ export const directions: Direction[] = [
     slug: 'poligrafiya',
     num: '01',
     title: 'Полиграфия',
-    count: '84 услуги',
+    count: '87 услуг',
     note: 'Визитки, открытки, сертификаты, каталоги, бланки',
     href: '/poligrafiya',
     shot: {
@@ -32,7 +32,7 @@ export const directions: Direction[] = [
     slug: 'upakovka',
     num: '02',
     title: 'Упаковка и этикетки',
-    count: '56 услуг',
+    count: '49 услуг',
     note: 'Коробки, пакеты, этикетки, подарочные наборы',
     href: '/upakovka-i-etiketki',
     shot: {
@@ -44,7 +44,7 @@ export const directions: Direction[] = [
     slug: 'logotip',
     num: '03',
     title: 'Логотип и фирменный стиль',
-    count: '9 услуг',
+    count: '4 услуги',
     note: 'Знак, гайдлайн, носители, макеты под печать',
     href: '/razrabotka-dizajna-logotipa-kompanii',
     shot: {
@@ -56,7 +56,7 @@ export const directions: Direction[] = [
     slug: 'brending',
     num: '04',
     title: 'Корпоративный брендинг',
-    count: '25 услуг',
+    count: '24 услуги',
     note: 'Мерч, обвесы, оформление событий и офисов',
     href: '/korporativnyj-brending-suveniry',
     shot: {
@@ -66,4 +66,4 @@ export const directions: Direction[] = [
   },
 ];
 
-export const directionsTotal = '174 услуги';
+export const directionsTotal = '164 услуги';

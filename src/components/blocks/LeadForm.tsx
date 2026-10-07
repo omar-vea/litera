@@ -207,14 +207,18 @@ export function LeadForm() {
             <input type="checkbox" name="agreement" required />
             <span>
               Даю{' '}
-              <a href={site.legal[1].href} target="_blank" rel="noopener">
+              <a href={withBase(site.legal[1].href)} target="_blank" rel="noopener">
                 согласие
               </a>{' '}
               {site.company.name} на обработку моих персональных данных для ответа на заявку и подтверждаю,
               что ознакомлен с{' '}
-              <a href={site.legal[0].href} target="_blank" rel="noopener">
-                политикой обработки персональных данных
-              </a>
+              {site.legal[0].href ? (
+                <a href={withBase(site.legal[0].href)} target="_blank" rel="noopener">
+                  политикой обработки персональных данных
+                </a>
+              ) : (
+                'политикой обработки персональных данных'
+              )}
             </span>
           </label>
           <p className="ls-agree-note">

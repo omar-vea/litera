@@ -1,7 +1,7 @@
 /**
  * Снимок контента с прода (Payload на litera.studio) для прототипа.
- * Забирается при сборке и ложится рядом с сайтом двумя файлами
- * (`/prod/catalog.json`, `/prod/projects.json`): из браузера прод напрямую
+ * Забирается при сборке и ложится рядом с сайтом файлами (`/prod/catalog.json`,
+ * `/prod/projects.json`, `/prod/texts.json`): из браузера прод напрямую
  * не прочитать — его API не отдаёт CORS-заголовков.
  * Страницы по этим данным рисует `ProdPage` уже в браузере.
  */
@@ -17,6 +17,8 @@ export type RichNode = {
   url?: string;
   fields?: { url?: string };
   children?: RichNode[];
+  /** картинка в тексте (`upload`) */
+  img?: ProdImg;
 };
 export type ProdImg = { src: string; w: number; h: number; alt: string };
 export type ProdSeo = { title: string; description: string };
@@ -53,6 +55,18 @@ export type ProdProject = {
   key: string;
 };
 
+/** Статья блога, кейс или страница-документ. */
+export type ProdText = {
+  slug: string;
+  title: string;
+  seo: ProdSeo;
+  img?: ProdImg;
+  body?: RichNode;
+  /** минут чтения */
+  read: number;
+  date: string;
+};
+
 type Raw = Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 async function get(path: string): Promise<Raw> {
@@ -84,7 +98,14 @@ const name = (t: string) =>
 const id = (v: Raw | number | null | undefined) =>
   v && typeof v === 'object' ? (v.id as number) : (v ?? null);
 const tax = (d: Raw) => ((d.portfolioTaxonomy ?? []) as Raw[]).map((t) => t.value?.title).filter(Boolean);
-const seo = (d: Raw): ProdSeo => ({ title: d.seo?.title || d.title, description: d.seo?.description || '' });
+// заголовок вкладки как у ручных страниц: «Название — Литера.Студия»; на проде суффиксы вразнобой
+// («/ Litera.Studio», «- Litera.Studio», а то и название дважды)
+const tab = (t: string) =>
+  `${t.replace(/\s*[/|—–-]\s*(Litera\.?\s?Studio|Литера\.?\s?Студия)[\s\S]*$/i, '').trim()} — Литера.Студия`;
+const seo = (d: Raw): ProdSeo => ({
+  title: tab(d.seo?.title || d.title),
+  description: d.seo?.description || '',
+});
 
 function base(d: Raw) {
   return {
@@ -153,3 +174,47 @@ export async function projects(): Promise<ProdProject[]> {
 }
 
 export type Catalog = Awaited<ReturnType<typeof catalog>>;
+
+// картинки в тексте: из медиа Payload оставляем адрес, размер и подпись
+const uploads = (n: RichNode): RichNode =>
+  n.type === 'upload'
+    ? { type: 'upload', img: img((n as Raw).value) }
+    : n.children
+      ? { ...n, children: n.children.map(uploads) }
+      : n;
+
+// у документов первый заголовок повторяет название страницы
+const flat = (n: RichNode): string => n.text ?? (n.children ?? []).map(flat).join('');
+const body = (d: Raw) => {
+  // кейс бывает из одних картинок — это тоже текст
+  const root =
+    rich(d.content) ?? (JSON.stringify(d.content ?? {}).includes('"upload"') ? d.content.root : undefined);
+  if (!root) return undefined;
+  const [first, ...rest] = root.children ?? [];
+  const same = first?.type === 'heading' && flat(first).trim() === String(d.title).trim();
+  return uploads(same ? { ...root, children: rest } : root);
+};
+
+export async function texts() {
+  const [blog, cases, pages] = await Promise.all([
+    get('blog?limit=1000&depth=1'),
+    get('cases?limit=1000&depth=1'),
+    get('pages?limit=1000&depth=1'),
+  ]);
+  const text = (d: Raw): ProdText => ({
+    slug: d.slug,
+    title: name(d.title),
+    seo: seo(d),
+    img: img(d.featuredImage, d.title),
+    body: body(d),
+    read: d.readTime ?? 0,
+    date: d.publishedAt ?? d.createdAt,
+  });
+  return {
+    blog: (blog.docs as Raw[]).map(text),
+    cases: (cases.docs as Raw[]).map(text),
+    pages: (pages.docs as Raw[]).map(text),
+  };
+}
+
+export type Texts = Awaited<ReturnType<typeof texts>>;

@@ -78,11 +78,13 @@ export function Footer() {
       </div>
 
       <ul className="ls-legal">
-        {site.legal.map((l) => (
-          <li key={l.href}>
-            <a href={l.href}>{l.label}</a>
-          </li>
-        ))}
+        {site.legal
+          .filter((l) => l.href)
+          .map((l) => (
+            <li key={l.href}>
+              <Link href={l.href}>{l.label}</Link>
+            </li>
+          ))}
       </ul>
 
       <div className="ls-fine">

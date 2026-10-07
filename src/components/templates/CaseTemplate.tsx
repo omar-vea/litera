@@ -60,16 +60,18 @@ export function CaseTemplate({ data }: { data: CaseData }) {
             <p className="ls-desc">{typo(data.description)}</p>
           </section>
 
-          <section className="ls-case-facts">
-            <dl>
-              {data.facts.map((f) => (
-                <div key={f.label}>
-                  <dt>{f.label}</dt>
-                  <dd>{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </section>
+          {data.facts.length > 0 && (
+            <section className="ls-case-facts">
+              <dl>
+                {data.facts.map((f) => (
+                  <div key={f.label}>
+                    <dt>{f.label}</dt>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
 
           {data.task && (
             <section className="ls-case-text">
@@ -96,14 +98,16 @@ export function CaseTemplate({ data }: { data: CaseData }) {
             </section>
           ) : null}
 
-          <section className="ls-case-gallery">
-            {gallery.map((g) => (
-              <figure key={g.src} className={'wide' in g && g.wide ? 'is-wide' : undefined}>
-                <GalleryPic src={g.src} alt={g.alt} />
-                <figcaption>{g.caption}</figcaption>
-              </figure>
-            ))}
-          </section>
+          {gallery.length > 0 && (
+            <section className="ls-case-gallery">
+              {gallery.map((g) => (
+                <figure key={g.src} className={'wide' in g && g.wide ? 'is-wide' : undefined}>
+                  <GalleryPic src={g.src} alt={g.alt} />
+                  <figcaption>{g.caption}</figcaption>
+                </figure>
+              ))}
+            </section>
+          )}
 
           <section className="ls-case-next">
             <h2>Напечатаем такой же</h2>

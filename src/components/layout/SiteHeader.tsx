@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { site } from '@/content/site';
+import { withBase } from '@/lib/base';
 import { menu } from '@/content/menu';
 import { Icon } from '@/components/ui/Icon';
 import { SEARCH_IN_BAR, WIDE, useMediaQuery } from '@/lib/useMediaQuery';
@@ -113,7 +114,7 @@ export function SiteHeader({ noHero = false, ctaHref = '#zayavka' }: Props) {
     if (open) setMenu(false);
     const form = document.querySelector('#zayavka');
     if (form) setTimeout(() => form.scrollIntoView({ block: 'start' }), 340);
-    else window.location.href = '/#zayavka';
+    else window.location.href = withBase('/#zayavka');
   };
 
   const ctaVisible = open || wide || stuck;
@@ -158,7 +159,8 @@ export function SiteHeader({ noHero = false, ctaHref = '#zayavka' }: Props) {
           tabIndex={ctaVisible ? 0 : -1}
           aria-hidden={!ctaVisible}
           onClick={(e) => {
-            if (!open) return;
+            // без формы на странице (документы) якорь никуда не ведёт — уходим к форме главной
+            if (!open && document.querySelector('#zayavka')) return;
             e.preventDefault();
             goToForm();
           }}

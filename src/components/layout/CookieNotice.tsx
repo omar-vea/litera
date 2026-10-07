@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { site } from '@/content/site';
+import { withBase } from '@/lib/base';
 import './CookieNotice.css';
 
 const KEY = 'litera-cookie-ok';
@@ -50,9 +51,13 @@ export function CookieNotice() {
       <p>
         Собираем обезличенные данные о посещениях&nbsp;— по ним видно, что на сайте помогает, а что мешает.
         Подробности в{' '}
-        <a href={site.legal[2].href} target="_blank" rel="noopener">
-          положении о файлах cookies
-        </a>
+        {site.legal[2].href ? (
+          <a href={withBase(site.legal[2].href)} target="_blank" rel="noopener">
+            положении о файлах cookies
+          </a>
+        ) : (
+          'положении о файлах cookies'
+        )}
         .
       </p>
       <button className="ls-btn ls-btn-light ls-btn-s ls-cookie-ok" type="button" onClick={accept}>

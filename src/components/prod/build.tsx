@@ -114,8 +114,13 @@ function about(fallback: string, root?: RichNode, title?: string) {
 }
 
 /** Пункты-списки из описания: «Создадим с нуля…», «Внесём правки…». */
+
+// «Litera Gifts — подарки и сувениры…» — реклама второго проекта студии, на карточке не нужна
 const points = (root?: RichNode) =>
-  (root?.children ?? []).filter((n) => n.type === 'list').flatMap((l) => l.children ?? []);
+  (root?.children ?? [])
+    .filter((n) => n.type === 'list')
+    .flatMap((l) => l.children ?? [])
+    .filter((li) => !/^\s*Litera Gifts/i.test(flat(li)));
 
 const bullets = (items: RichNode[]) =>
   items.map((li) => ({ title: <Rich root={{ type: 'root', children: li.children }} />, text: null }));

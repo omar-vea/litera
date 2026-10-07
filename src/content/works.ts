@@ -20,7 +20,7 @@ export const adventWorks: WorksSet = {
     {
       title: 'Календарь с дверцами на 31 день',
       tags: 'Корпоративный подарок · кашировка, вырубка дверец',
-      href: '/projects',
+      href: '/projects/697',
       shots: [
         {
           src: '/img/advent/w-ny-1.jpg',
@@ -45,7 +45,7 @@ export const adventWorks: WorksSet = {
     {
       title: 'Шкатулка с ящичками FIRDAWS',
       tags: 'Мода · тиснение, лента, ящички под размер',
-      href: '/projects',
+      href: '/projects/782',
       shots: [
         {
           src: '/img/advent/w-firdaws.jpg',
@@ -58,7 +58,7 @@ export const adventWorks: WorksSet = {
     {
       title: 'Коробка с окошком CHOCOhunter',
       tags: 'Шоколад · картон, окошко-шкала',
-      href: '/projects',
+      href: '/projects/571',
       shots: [
         {
           src: '/img/advent/w-choco.jpg',
@@ -80,28 +80,28 @@ export const caseBourbakiWorks: WorksSet = {
   title: 'Ещё работы',
   works: [
     {
-      title: 'Сертификаты в конвертах',
-      tags: 'Ресторан · конверт под формат',
-      href: '/projects/sertifikat-bourbaki',
+      title: 'Подарочный сертификат для «Complex Smile»',
+      tags: 'Медицина · конверт, тиснение фольгой',
+      href: '/projects/780',
       shots: [
         {
-          src: '/img/p1.jpg',
-          w: 900,
-          h: 457,
-          alt: 'Сертификаты в конвертах',
+          src: 'https://litera.studio/api/media/file/podarochnyj-sertifikat-v-konverte-s-tisneniem-folgoj-1.jpg?prefix=2026%2F03',
+          w: 1200,
+          h: 800,
+          alt: 'Подарочный сертификат для «Complex Smile» в конверте',
         },
       ],
     },
     {
-      title: 'Сертификаты с QR-кодом',
-      tags: 'Фитнес-студия · QR и сквозной номер',
-      href: '/projects/sertifikat-bourbaki',
+      title: 'Подарочный сертификат для «AG-Smile»',
+      tags: 'Медицина · объёмный лак',
+      href: '/projects/750',
       shots: [
         {
-          src: '/img/p5.jpg',
-          w: 900,
-          h: 457,
-          alt: 'Сертификаты с QR-кодом',
+          src: 'https://litera.studio/api/media/file/dizajn-i-izgotovlenie-podarochnyh-sertifikatov-v-konverte-1.jpg?prefix=2025%2F10',
+          w: 1200,
+          h: 800,
+          alt: 'Подарочный сертификат для «AG-Smile» в конверте',
         },
       ],
     },
@@ -119,7 +119,7 @@ export const listovayaWorks: WorksSet = {
     {
       title: 'Визитки Woodberry Beauty',
       tags: 'Салон красоты · плотный картон, узор на обороте',
-      href: '/projects',
+      href: '/projects/695',
       shots: [
         {
           src: '/img/works/woodberry-1.jpg',
@@ -144,7 +144,7 @@ export const listovayaWorks: WorksSet = {
     {
       title: 'Приглашение на премию в туризме',
       tags: 'Событие · фольга, конверт, объёмная вклейка',
-      href: '/projects',
+      href: '/projects/642',
       shots: [
         {
           src: '/img/works/premia-1.jpg',
@@ -169,7 +169,7 @@ export const listovayaWorks: WorksSet = {
     {
       title: 'Буклеты Intourist',
       tags: 'Туризм · фигурная вырубка, лифлет',
-      href: '/projects',
+      href: '/projects/639',
       shots: [
         {
           src: '/img/works/intourist-1.jpg',
@@ -249,7 +249,7 @@ export const igryWorks: WorksSet = {
     {
       title: 'Настольная игра LifeSync',
       tags: 'Ритейл · кашировка, коробка-пенал',
-      href: '/projects',
+      href: '/projects/565',
       shots: [
         {
           src: '/img/works/lifesync-igra-1.jpg',
@@ -274,7 +274,7 @@ export const igryWorks: WorksSet = {
     {
       title: 'Колода по вселенной «Дюны»',
       tags: 'Премиальная колода · окрашенный торец, акрил',
-      href: '/projects',
+      href: '/projects/694',
       shots: [
         {
           src: '/img/works/duna-1.jpg',
@@ -299,7 +299,7 @@ export const igryWorks: WorksSet = {
     {
       title: 'Колода Таро Уэйта',
       tags: '78 арканов · объёмная фольга',
-      href: '/projects',
+      href: '/projects/699',
       shots: [
         {
           src: '/img/works/taro-ueyta-1.jpg',
@@ -324,7 +324,7 @@ export const igryWorks: WorksSet = {
     {
       title: 'Настольная игра «Газполия»',
       tags: 'Корпоративный подарок · поле, коробка, карты',
-      href: '/projects',
+      href: '/projects/643',
       shots: [
         {
           src: '/img/works/gazpolia-1.jpg',
@@ -360,7 +360,7 @@ export const homeWorks: WorksSet = {
     {
       title: 'Каталог LUXE CITY',
       tags: 'Полиграфия · твёрдый переплёт, выборочный лак',
-      href: '/projects',
+      href: '/projects/800',
       shots: [
         {
           src: '/img/works/luxe-1.jpg',
@@ -385,7 +385,7 @@ export const homeWorks: WorksSet = {
     {
       title: 'Коробка для премиального подарка',
       tags: 'Упаковка · кашировка, объёмная фольга',
-      href: '/projects',
+      href: '/projects/747',
       shots: [
         {
           src: '/img/works/gift-1.jpg',
@@ -410,7 +410,7 @@ export const homeWorks: WorksSet = {
     {
       title: 'Фирменный стиль «Любимая кружка»',
       tags: 'Логотип и фирменный стиль · маскот, гайдлайн',
-      href: '/projects',
+      href: '/projects/786',
       shots: [
         {
           src: '/img/works/kruzhka-1.jpg',
@@ -435,7 +435,7 @@ export const homeWorks: WorksSet = {
     {
       title: 'Бизнес-набор «Амбар»',
       tags: 'Корпоративный брендинг · шоппер, блокнот, паттерн',
-      href: '/projects',
+      href: '/projects/775',
       shots: [
         {
           src: '/img/works/ambar-1.jpg',
@@ -490,7 +490,7 @@ export const menuPraysWorks: WorksSet = {
     {
       title: 'Премиальное меню для ресторана',
       tags: 'Рестораны · твёрдый переплёт, фольга',
-      href: '/projects',
+      href: '/projects/805',
       shots: [
         {
           src: '/img/works/opera-menu-1.jpg',
@@ -515,7 +515,7 @@ export const menuPraysWorks: WorksSet = {
     {
       title: 'Меню для ресторана «Ohana»',
       tags: 'Рестораны · сменные листы на болтах',
-      href: '/projects',
+      href: '/projects/778',
       shots: [
         {
           src: '/img/works/ohana-1.jpg',
@@ -540,7 +540,7 @@ export const menuPraysWorks: WorksSet = {
     {
       title: 'Прайс для салона «SalvaDali»',
       tags: 'Салон красоты · кашировка, ламинация',
-      href: '/projects',
+      href: '/projects/617',
       shots: [
         {
           src: '/img/works/salvadali-1.jpg',
@@ -565,7 +565,7 @@ export const menuPraysWorks: WorksSet = {
     {
       title: 'Меню с блинтовым тиснением',
       tags: 'Рестораны · блинт, кашировка',
-      href: '/projects',
+      href: '/projects/799',
       shots: [
         {
           src: '/img/works/blint-menu-1.jpg',
@@ -601,7 +601,7 @@ export const naboryWorks: WorksSet = {
     {
       title: 'Коробка к 30-летию «Аресбанка»',
       tags: 'Банк · объёмная фольга, ложемент',
-      href: '/projects',
+      href: '/projects/705',
       shots: [
         {
           src: '/img/works/aresbank-1.jpg',
@@ -712,7 +712,7 @@ export const poligrafiyaWorks: WorksSet = {
     {
       title: 'Каталог LUXE CITY',
       tags: 'Полиграфия · твёрдый переплёт, выборочный лак',
-      href: '/projects',
+      href: '/projects/800',
       shots: [
         {
           src: '/img/works/luxe-1.jpg',
@@ -762,7 +762,7 @@ export const poligrafiyaWorks: WorksSet = {
     {
       title: 'Календарь с дверцами на 31 день',
       tags: 'Корпоративный подарок · кашировка, вырубка дверец',
-      href: '/projects',
+      href: '/projects/697',
       shots: [
         {
           src: '/img/advent/w-ny-1.jpg',
@@ -787,7 +787,7 @@ export const poligrafiyaWorks: WorksSet = {
     {
       title: 'Приглашение на премию в туризме',
       tags: 'Событие · фольга, конверт, объёмная вклейка',
-      href: '/projects',
+      href: '/projects/642',
       shots: [
         {
           src: '/img/works/premia-1.jpg',
@@ -842,7 +842,7 @@ export const sertifikatWorks: WorksSet = {
     {
       title: 'Подарочный сертификат для «BOURBAKI»',
       tags: 'Мода · тиснение фольгой',
-      href: '/projects',
+      href: '/projects/sertifikat-bourbaki',
       shots: [
         {
           src: '/img/works/bourbaki-1.jpg',
@@ -867,7 +867,7 @@ export const sertifikatWorks: WorksSet = {
     {
       title: 'Подарочный сертификат для «Complex Smile»',
       tags: 'Медицина',
-      href: '/projects',
+      href: '/projects/780',
       shots: [
         {
           src: '/img/works/cert-complexsmile.jpg',
@@ -880,7 +880,7 @@ export const sertifikatWorks: WorksSet = {
     {
       title: 'Сертификат с тиснением фольгой',
       tags: 'Производство',
-      href: '/projects',
+      href: '/projects/776',
       shots: [
         {
           src: '/img/works/cert-tisnenie.jpg',
@@ -893,7 +893,7 @@ export const sertifikatWorks: WorksSet = {
     {
       title: 'Подарочный сертификат для «AG-Smile»',
       tags: 'Медицина · объёмный лак',
-      href: '/projects',
+      href: '/projects/750',
       shots: [
         {
           src: '/img/works/cert-agsmile.jpg',
@@ -906,7 +906,7 @@ export const sertifikatWorks: WorksSet = {
     {
       title: 'Подарочный сертификат для «IZGIB»',
       tags: 'Спорт · цифровая печать',
-      href: '/projects',
+      href: '/projects/717',
       shots: [
         {
           src: '/img/works/cert-izgib.jpg',
@@ -919,7 +919,7 @@ export const sertifikatWorks: WorksSet = {
     {
       title: 'Абонементы для «Woodberry beauty»',
       tags: 'Салон красоты · объёмный лак',
-      href: '/projects',
+      href: '/projects/301',
       shots: [
         {
           src: '/img/works/cert-woodberry.jpg',
