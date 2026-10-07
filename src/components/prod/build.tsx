@@ -91,11 +91,19 @@ function about(fallback: string, root?: RichNode, title?: string) {
 }
 
 /** Пункты-списки из описания: «Создадим с нуля…», «Внесём правки…». */
-const bullets = (root?: RichNode) =>
-  (root?.children ?? [])
-    .filter((n) => n.type === 'list')
-    .flatMap((l) => l.children ?? [])
-    .map((li) => ({ title: <Rich root={{ type: 'root', children: li.children }} />, text: null }));
+const points = (root?: RichNode) =>
+  (root?.children ?? []).filter((n) => n.type === 'list').flatMap((l) => l.children ?? []);
+
+const bullets = (items: RichNode[]) =>
+  items.map((li) => ({ title: <Rich root={{ type: 'root', children: li.children }} />, text: null }));
+
+const flat = (n: RichNode): string => n.text ?? (n.children ?? []).map(flat).join('');
+
+/** Пункт списка как описание под заголовком: «;» в конце → точка, дефис → тире. */
+const sentence = (n: RichNode) => {
+  const t = flat(n).trim().replace(/ - /g, ' — ').replace(/[;,:]$/, '');
+  return /[.!?…]$/.test(t) ? t : `${t}.`;
+};
 
 const meta = (x: ProdCategory | ProdService) => ({
   title: x.seo.title,
@@ -180,7 +188,10 @@ export function build(slug: string, cat: Catalog, projects: ProdProject[]): Page
     const similar = s.similar.length
       ? cat.services.filter((x) => s.similar.includes(x.id))
       : cat.services.filter((x) => x.id !== s.id && x.cat === s.cat).slice(0, 6);
-    const value = bullets(s.desc);
+    // у большинства услуг на проде описание — только список: первый пункт идёт под заголовок
+    const intro = plain(s.desc);
+    const list = points(s.desc);
+    const value = bullets(intro ? list : list.slice(1));
     return {
       kind: 'service',
       title: s.seo.title,
@@ -191,7 +202,7 @@ export function build(slug: string, cat: Catalog, projects: ProdProject[]): Page
         jsonLd: [],
         back: home ? { href: `/${home.slug}`, label: home.title } : { href: '/', label: 'Главная' },
         title: s.title,
-        desc: plain(s.desc),
+        desc: intro || (list[0] ? sentence(list[0]) : ''),
         // кадр из портфолио, иначе своё фото, иначе обложка из карточки
         hero: picked(s.slug, projects) ?? s.head ?? s.img!,
         works: works(projects, s.tax),
