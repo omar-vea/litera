@@ -81,7 +81,7 @@ export const nabory: SectionPage = {
           {
             title: 'Приветственный набор',
             note: 'Новичку в первый день: блокнот, кружка, памятка',
-            href: '#zayavka',
+            href: '/velkom-pak-dlya-sotrudnikov',
             img: {
               src: '/img/nabory/novichok.jpg',
               w: 416,
@@ -110,7 +110,7 @@ export const nabory: SectionPage = {
           {
             title: 'Коробка под набор',
             note: 'Кашированная или из микрогофры, с магнитом или лентой',
-            href: '#zayavka',
+            href: '/dizajn-i-pechat-korobok',
             img: {
               src: '/img/nabory/korobka.jpg',
               w: 416,
@@ -121,7 +121,7 @@ export const nabory: SectionPage = {
           {
             title: 'Ложемент под предметы',
             note: 'Вырубка по вашим предметам\u00a0— ничего не болтается',
-            href: '#zayavka',
+            href: '/dizajn-i-pechat-korobok-s-lozhementom',
             img: {
               src: '/img/nabory/lozhement.jpg',
               w: 416,
@@ -148,7 +148,7 @@ export const nabory: SectionPage = {
           {
             title: 'Открытка с именем',
             note: 'Имя получателя печатаем на каждой\u00a0— по вашему списку',
-            href: '#zayavka',
+            href: '/dizajn-otkrytki',
             img: {
               src: '/img/nabory/otkrytka.jpg',
               w: 416,
@@ -185,7 +185,7 @@ export const nabory: SectionPage = {
             и сразу.
           </p>
         ),
-        links: [{ href: '#zayavka', label: 'Коробка под набор' }],
+        links: [{ href: '/dizajn-i-pechat-korobok', label: 'Коробка под набор' }],
       },
       {
         q: 'Один состав или несколько',
