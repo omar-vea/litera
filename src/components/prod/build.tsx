@@ -56,10 +56,30 @@ const tile = (x: ProdCategory | ProdService, note = '', count?: string): Tile =>
   img: x.img,
 });
 
-/** Работы по продуктовым тегам: меньше трёх — блока нет. */
-function works(projects: ProdProject[], tax: string[], skip?: number): WorksSet | undefined {
-  if (!tax.length) return undefined;
-  const list = projects.filter((p) => p.id !== skip && p.prod.some((t) => tax.includes(t))).slice(0, 4);
+const norm = (t: string) =>
+  t
+    .toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/[«»“”"().,]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+const SKIP = new Set(['для', 'и', 'на', 'с', 'в', 'по', 'дизайн', 'печать', 'изготовление', 'разработка']);
+
+/** Работа «по названию»: все слова услуги без окончаний есть в названии работы («Фирменные бланки для…»). */
+const byName = (name: string) => {
+  const words = norm(name)
+    .split(' ')
+    .filter((w) => !SKIP.has(w))
+    .map((w) => (w.length > 4 ? w.slice(0, Math.max(4, w.length - 2)) : w));
+  return (p: ProdProject) => words.length > 0 && words.every((w) => norm(p.title).includes(w));
+};
+
+/** Работы по продуктовым тегам (нет тега — по названию услуги): меньше трёх — блока нет. */
+function works(projects: ProdProject[], tax: string[], skip?: number, name?: string): WorksSet | undefined {
+  const named = name ? byName(name) : () => false;
+  const list = projects
+    .filter((p) => p.id !== skip && (p.prod.some((t) => tax.includes(t)) || named(p)))
+    .slice(0, 4);
   if (list.length < 3) return undefined;
   return {
     title: 'Работы',
@@ -70,7 +90,10 @@ function works(projects: ProdProject[], tax: string[], skip?: number): WorksSet 
       shots: p.slides.slice(0, 3),
     })),
     shorts: [],
-    more: { href: `/projects?prod=${encodeURIComponent(tax[0])}`, label: 'Все работы' },
+    more: {
+      href: tax.length ? `/projects?prod=${encodeURIComponent(tax[0])}` : '/projects',
+      label: 'Все работы',
+    },
   };
 }
 
@@ -101,7 +124,10 @@ const flat = (n: RichNode): string => n.text ?? (n.children ?? []).map(flat).joi
 
 /** Пункт списка как описание под заголовком: «;» в конце → точка, дефис → тире. */
 const sentence = (n: RichNode) => {
-  const t = flat(n).trim().replace(/ - /g, ' — ').replace(/[;,:]$/, '');
+  const t = flat(n)
+    .trim()
+    .replace(/ - /g, ' — ')
+    .replace(/[;,:]$/, '');
   return /[.!?…]$/.test(t) ? t : `${t}.`;
 };
 
@@ -205,7 +231,7 @@ export function build(slug: string, cat: Catalog, projects: ProdProject[]): Page
         desc: intro || (list[0] ? sentence(list[0]) : ''),
         // кадр из портфолио, иначе своё фото, иначе обложка из карточки
         hero: picked(s.slug, projects) ?? s.head ?? s.img!,
-        works: works(projects, s.tax),
+        works: works(projects, s.tax, undefined, s.title),
         value: value.length ? { title: 'Что сделаем', items: value } : undefined,
         about: about('Об услуге', s.more, s.moreTitle),
         related: similar.length
