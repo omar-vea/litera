@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Аудит и внутренние материалы — отдельный приватный репозиторий omar-vea/litera-audit
+/audit/
