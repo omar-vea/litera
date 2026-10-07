@@ -110,7 +110,7 @@ export const nabory: SectionPage = {
           {
             title: 'Коробка под набор',
             note: 'Кашированная или из микрогофры, с магнитом или лентой',
-            href: '/dizajn-i-pechat-korobok',
+            href: '/upakovka-i-etiketki',
             img: {
               src: '/img/nabory/korobka.jpg',
               w: 416,
@@ -185,7 +185,7 @@ export const nabory: SectionPage = {
             и сразу.
           </p>
         ),
-        links: [{ href: '/dizajn-i-pechat-korobok', label: 'Коробка под набор' }],
+        links: [{ href: '/upakovka-i-etiketki', label: 'Коробка под набор' }],
       },
       {
         q: 'Один состав или несколько',

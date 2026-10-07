@@ -106,16 +106,20 @@ export async function catalog() {
     get('service-categories?limit=1000&depth=1'),
     get('services?limit=1000&depth=1'),
   ]);
-  return {
-    cats: (cats.docs as Raw[]).map((d): ProdCategory => ({ ...base(d), parent: id(d.parent) })),
-    services: (services.docs as Raw[]).map((d): ProdService => ({
-      ...base(d),
-      cat: id(d.category) as number,
-      cats: ((d.additionalCategories ?? []) as Raw[]).map((c) => id(c) as number),
-      head: img(d.headImage, d.title),
-      similar: ((d.similarServices ?? []) as Raw[]).map((s) => id(s) as number),
-    })),
-  };
+  const all = (cats.docs as Raw[]).map((d): ProdCategory => ({ ...base(d), parent: id(d.parent) }));
+  const list = (services.docs as Raw[]).map((d): ProdService => ({
+    ...base(d),
+    cat: id(d.category) as number,
+    cats: ((d.additionalCategories ?? []) as Raw[]).map((c) => id(c) as number),
+    head: img(d.headImage, d.title),
+    similar: ((d.similarServices ?? []) as Raw[]).map((s) => id(s) as number),
+  }));
+  // на проде остались старые категории без единой услуги внутри («Полиграфия, сувениры и айдентика»,
+  // «Дизайн и печать коробок»…) — пустые страницы не показываем
+  const live = (c: ProdCategory): boolean =>
+    list.some((s) => s.cat === c.id || s.cats.includes(c.id)) ||
+    all.some((k) => k.parent === c.id && live(k));
+  return { cats: all.filter(live), services: list };
 }
 
 export async function projects(): Promise<ProdProject[]> {
