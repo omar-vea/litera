@@ -40,8 +40,8 @@ export function TextTemplate({ data }: { data: TextData }) {
         )}
         {data.form && (
           <>
-            <Proof />
             <LeadForm />
+            <Proof />
           </>
         )}
       </div>

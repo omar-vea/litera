@@ -44,8 +44,8 @@ export default function BlogPage() {
         <i className="ls-rest-sentinel" aria-hidden="true" />
         <i className="ls-chat-sentinel" aria-hidden="true" />
         <BlogList top={blogTop} columns={blogColumns} />
-        <Proof />
         <LeadForm />
+        <Proof />
       </div>
     </main>
   );

@@ -71,8 +71,8 @@ export default function RequirementsPage() {
         <RequirementsCta />
         <RequirementsToc />
         <RequirementsGroups />
-        <Proof />
         <LeadForm />
+        <Proof />
       </div>
     </main>
   );

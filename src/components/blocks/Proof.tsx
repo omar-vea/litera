@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { figures } from '@/content/site';
 import './Clients.css';
 import './Figures.css';
+import './Proof.css';
 
 const clients = [
   { id: 'ormatek', src: '/img/clients/ormatek.jpg', w: 300, h: 300, alt: 'Ormatek' },
@@ -14,10 +15,25 @@ const clients = [
   { id: 'helikon', src: '/img/clients/helikon.png', w: 112, h: 112, alt: 'Геликон-опера' },
 ];
 
-/** Довод перед формой на всех страницах: цифры студии и лента клиентов. */
+/** Лента логотипов клиентов: внутри Proof и отдельной строкой под первым экраном главной. */
+export function Clients() {
+  return (
+    <section className="ls-clients" aria-label="Клиенты">
+      <ul>
+        {clients.map((c) => (
+          <li key={c.id} className={`ls-c-${c.id}`}>
+            <Image src={c.src} width={c.w} height={c.h} alt={c.alt} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/** Последний блок перед футером на всех страницах: цифры студии и лента клиентов. */
 export function Proof() {
   return (
-    <>
+    <div className="ls-proof">
       <section className="ls-figures" aria-label="Студия в цифрах">
         {figures.map((f) => (
           <div key={f.label}>
@@ -26,15 +42,7 @@ export function Proof() {
           </div>
         ))}
       </section>
-      <section className="ls-clients" aria-label="Клиенты">
-        <ul>
-          {clients.map((c) => (
-            <li key={c.id} className={`ls-c-${c.id}`}>
-              <Image src={c.src} width={c.w} height={c.h} alt={c.alt} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </>
+      <Clients />
+    </div>
   );
 }

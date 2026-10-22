@@ -87,8 +87,8 @@ export function ArticleTemplate({ data }: { data: ArticleData }) {
           </div>
           <PostRows posts={data.related} />
         </section>
-        <Proof />
         <LeadForm />
+        <Proof />
       </div>
     </main>
   );

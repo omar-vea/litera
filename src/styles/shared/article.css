@@ -48,6 +48,8 @@
   text-wrap: balance;
 }
 .ls-article a:not(.ls-btn) {
+  /* адрес ссылкой в тексте («https://…/blog/…») рвём где угодно, иначе он режется краем телефона */
+  overflow-wrap: anywhere;
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;

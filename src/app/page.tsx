@@ -7,7 +7,7 @@ import { Directions } from '@/components/blocks/Directions';
 import { Messengers } from '@/components/blocks/Messengers';
 import { Works } from '@/components/blocks/Works';
 import { HowWeWork } from '@/components/blocks/HowWeWork';
-import { Proof } from '@/components/blocks/Proof';
+import { Clients, Proof } from '@/components/blocks/Proof';
 import { LeadForm } from '@/components/blocks/LeadForm';
 import { JsonLd } from '@/components/ui/JsonLd';
 import './home.css';
@@ -91,6 +91,7 @@ export default function HomePage() {
             </div>
             <Messengers />
           </section>
+          <Clients />
         </div>
 
         <div className="ls-rest">
@@ -141,8 +142,8 @@ export default function HomePage() {
 
           <Works set={homeWorks} />
           <HowWeWork />
-          <Proof />
           <LeadForm />
+          <Proof />
         </div>
       </main>
     </>

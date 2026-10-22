@@ -1,0 +1,42 @@
+/* Цифры и клиенты — тёмной полосой последним блоком перед футером.
+   На белом сразу под «Как мы работаем» они читались продолжением шагов;
+   отдельная полоса отделяет их от страницы и связывает цифры с логотипами.
+
+   Логотипы серые на белом; здесь их инвертируем, а `screen` гасит белое
+   поле у растровых файлов (Ormatek, Франция) — иначе на чёрном стоял бы
+   квадрат. Смешение у ленты, а не у картинок: лента сдвигается `transform`,
+   и картинки внутри смешивались бы с её прозрачным слоем, а не с фоном. */
+.ls-proof {
+  margin-top: var(--gap-block);
+  padding: var(--gap-block) 0;
+  background: var(--ink);
+  border-bottom: 1px solid var(--line-dark);
+}
+/* Серая форма переходит в полосу встык: воздух между ними был бы белой щелью. */
+.ls-lead-form + .ls-proof {
+  margin-top: 0;
+}
+/* Последний блок страницы получает снизу 96 (shell.css) — у полосы поля
+   свои, ровные сверху и снизу. Линия снизу отделяет её от футера: фон один. */
+:is(.ls-rest, .ls-card) > .ls-proof:last-child {
+  padding-bottom: var(--gap-block);
+}
+.ls-proof .ls-figures {
+  margin-top: 0;
+}
+.ls-proof .ls-figures b {
+  color: var(--paper);
+}
+.ls-proof .ls-figures span {
+  color: var(--on-dark-3);
+}
+.ls-proof .ls-clients {
+  margin-top: 48px;
+}
+.ls-proof .ls-clients ul {
+  mix-blend-mode: screen;
+}
+.ls-proof .ls-clients img {
+  filter: grayscale(1) invert(1);
+  opacity: 0.6;
+}

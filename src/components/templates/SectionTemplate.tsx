@@ -17,8 +17,8 @@ export const sectionMetadata = (page: SectionPage): Metadata => pageMetadata(pag
 
 /**
  * Раздел каталога: первый экран без кадра, услуги плитками по группам,
- * «Что выбрать под задачу», работы, шаги, довод и форма, текст о разделе
- * и соседние разделы. «О …» стоит после формы: это текст для поиска.
+ * «Что выбрать под задачу», работы, шаги, форма, текст о разделе,
+ * соседние разделы и довод перед футером. «О …» стоит после формы: это текст для поиска.
  */
 export function SectionTemplate({ page }: { page: SectionPage }) {
   const thumbs = new Map(page.catalog.flat(2).flatMap((g) => g.items.map((t) => [t.href, t.img] as const)));
@@ -33,11 +33,6 @@ export function SectionTemplate({ page }: { page: SectionPage }) {
         <SiteHeader noHero />
 
         <PageLead back={page.back} title={page.title} desc={page.desc} solo />
-        {page.choose && (
-          <p className="ls-cat-hint">
-            <a href="#vybor">{page.choose.title}</a>
-          </p>
-        )}
         <i className="ls-chat-sentinel" aria-hidden="true" />
 
         <Catalog columns={page.catalog} />
@@ -51,11 +46,11 @@ export function SectionTemplate({ page }: { page: SectionPage }) {
           />
         )}
         {page.works && <Works set={page.works} />}
-        <HowWeWork />
-        <Proof />
+        <HowWeWork steps={page.how?.steps} total={page.how?.total} />
         <LeadForm />
         {page.about && <About {...page.about} />}
         {page.related && <Related {...page.related} />}
+        <Proof />
       </main>
     </>
   );

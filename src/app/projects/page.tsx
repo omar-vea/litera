@@ -50,8 +50,8 @@ export default function ProjectsPage() {
         <Suspense>
           <ProjectsGrid />
         </Suspense>
-        <Proof />
         <LeadForm />
+        <Proof />
       </div>
     </main>
   );

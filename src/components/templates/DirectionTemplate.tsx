@@ -33,11 +33,11 @@ export function DirectionTemplate({ page }: { page: DirectionPage }) {
         <PageLead back={page.back} title={page.title} desc={page.desc} />
         <SectionList items={page.sections} />
         {page.works && <Works set={page.works} />}
-        <HowWeWork />
+        <HowWeWork steps={page.how?.steps} total={page.how?.total} />
         {page.about && <About {...page.about} />}
-        <Proof />
         <LeadForm />
         <Directions title="Другие направления" exclude={page.slug} more />
+        <Proof />
       </main>
     </>
   );

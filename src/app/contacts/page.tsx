@@ -67,8 +67,8 @@ export default function ContactsPage() {
         <i className="ls-chat-sentinel" aria-hidden="true" />
         <ContactChannels />
         <ContactPlaces />
-        <Proof />
         <LeadForm />
+        <Proof />
       </div>
     </main>
   );

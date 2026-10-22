@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { WorksSet } from '@/content/works';
 import type { QA } from '@/components/blocks/Faq';
 import type { RelatedItem } from '@/components/blocks/Related';
+import type { Step } from '@/components/blocks/HowWeWork';
 
 /** Плитка или строка каталога: услуга в разделе или раздел в направлении. */
 export type Tile = {
@@ -41,6 +42,8 @@ export type SectionPage = {
   catalog: CatalogGroup[][];
   choose?: { title: string; items: QA[] };
   works?: WorksSet;
+  /** Свои шаги «Как мы работаем»; нет — общие. */
+  how?: { steps: Step[]; total: ReactNode };
   about?: { title: string; lead: ReactNode; more?: ReactNode };
   related?: { title: string; all: { href: string; label: string }; items: RelatedItem[] };
 };

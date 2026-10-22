@@ -93,6 +93,29 @@
   text-decoration-color: var(--line-dark-2);
 }
 
+/* Строка логотипов под первым экраном, на том же чёрном: довод «нам
+   доверяют», пока человек решает, остаться ли. Только логотипы, без цифр —
+   иначе направления уезжали бы на полэкрана. Цифры с логотипами — полосой
+   перед футером (Proof.css), инверсия та же, что там. */
+.ls-home-lead .ls-clients {
+  margin-top: 0;
+  padding-bottom: 40px;
+}
+.ls-home-lead .ls-clients ul {
+  --k: 0.7;
+  mix-blend-mode: screen;
+}
+.ls-home-lead .ls-clients img {
+  filter: grayscale(1) invert(1);
+  opacity: 0.6;
+}
+/* Строка тоньше, чем лента внизу: знаки мельче. */
+@media (min-width: 1024px) {
+  .ls-home-lead .ls-clients ul {
+    --k: 1;
+  }
+}
+
 /* Кнопка по содержимому уже с планшета: на 768 во всю колонку она
    растягивалась на 680 пикселей и читалась полосой. */
 @media (min-width: 600px) {

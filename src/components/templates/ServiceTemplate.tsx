@@ -32,10 +32,10 @@ export function ServiceTemplate({ data }: { data: ServiceData }) {
       {data.specs && <Specs {...data.specs} />}
       <HowWeWork steps={data.how?.steps} total={data.how?.total} />
       {data.faq && <Faq title={data.faq.title} items={data.faq.items} />}
-      <Proof />
       <LeadForm />
       {data.about && <About {...data.about} />}
       {data.related && <Related {...data.related} />}
+      <Proof />
     </>
   );
   const jsonLd = data.jsonLd.map((ld, i) => <JsonLd key={i} data={ld} />);

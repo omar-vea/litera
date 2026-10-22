@@ -49,6 +49,22 @@
   grid-template-rows: repeat(2, auto);
   grid-template-columns: 1fr 1fr;
 }
+/* У контактов — по строкам: телефон рядом с почтой, Telegram рядом с Max.
+   По колонкам телефон вставал в строку с «Telegram» и читался его номером. */
+.ls-foot-group:first-child > ul {
+  grid-auto-flow: row;
+}
+.ls-foot-group:first-child > ul a {
+  white-space: nowrap;
+}
+/* На 320 телефон и почта рядом не помещаются (135 + 148 при колонке 134),
+   номер ломался по дефису — контакты в один столбик. */
+@media (max-width: 359px) {
+  .ls-foot-group:first-child > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+}
 .ls-foot li + li {
   margin-top: 0;
 }

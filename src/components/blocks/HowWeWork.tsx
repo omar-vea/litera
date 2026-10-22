@@ -25,12 +25,12 @@ const defaultSteps: Step[] = [
 ];
 
 type Props = {
-  /** Шаги со сроками под продукт — у карточки услуги. Без них — общие шаги. */
+  /** Свои шаги — у услуги, раздела или направления. Без них — общие шаги. */
   steps?: Step[];
   total?: ReactNode;
 };
 
-/** «Как мы работаем». На карточке услуги шаги свои, со сроками. */
+/** «Как мы работаем». Общие шаги по умолчанию; страница может задать свои. */
 export function HowWeWork({ steps = defaultSteps, total }: Props) {
   return (
     <section className="ls-how">
