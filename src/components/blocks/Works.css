@@ -149,7 +149,9 @@
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.22s var(--ease);
+  transition:
+    opacity 0.22s var(--ease),
+    scale 0.5s var(--ease);
 }
 .ls-work .ls-shots img:first-child {
   opacity: 1;
